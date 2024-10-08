@@ -1,9 +1,8 @@
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 // import { SpinnerContext } from "./SpinnerContext";
 import img from "../assets/images/banner-4.png";
-import axios from "axios";
 
 const ContactForm = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
@@ -13,7 +12,6 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    clearErrors,
     formState: { errors },
   } = useForm({
     mode: "all",
@@ -48,7 +46,7 @@ const ContactForm = () => {
         body: JSON.stringify(payload),
       })
         .then((response) => response.json())
-        .then((data) => {
+        .then(() => {
             toast.success('Email sent successfully');
             reset();
         })

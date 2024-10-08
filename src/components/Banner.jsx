@@ -6,7 +6,7 @@ import banner4 from "../assets/images/banner-4.png";
 import { gsap } from "gsap";
 import JoinEntrepreneurs from "./JoinEntrepreneurs";
 import { Link } from "react-router-dom";
-import bgImg from '../assets/images/bg.png'
+// import bgImg from '../assets/images/bg.png'
 
 const Banner = () => {
   useEffect(() => {
@@ -63,7 +63,7 @@ const Banner = () => {
         </div>
       </div>
       <div data-aos="fade-up" className="flex flex-col gap-3 w-full justify-center items-center">
-        <Link className="primary-btn font-medium w-[20rem] flex justify-center py-3" to="/">Start your own AI company</Link>
+        <Link className="primary-btn font-medium w-[20rem] flex justify-center py-3" rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/">Start your own AI company</Link>
         <JoinEntrepreneurs/>
       </div>
     </div>

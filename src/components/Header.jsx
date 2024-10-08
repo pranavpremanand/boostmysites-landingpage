@@ -1,10 +1,11 @@
 // import { Link } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Drawer from "react-modern-drawer";
 import { Divide as Hamburger } from "hamburger-react";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-scroll";
+import {Link as RLink} from 'react-router-dom'
 
 const options = [
   {
@@ -94,12 +95,12 @@ const Header = () => {
                 {option.title}
               </Link>
             ))}
-            <Link to="/" className="text-primary">
+            <RLink rel="noreferrer" target="_blank" to="https://course.boostmysites.com/wp-login.php?redirect_to=courses/flutter-app-development-program" className="text-primary">
               Login
-            </Link>
-            <Link to="/" className="primary-btn">
+            </RLink>
+            <RLink rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/" className="primary-btn">
               Join Now
-            </Link>
+            </RLink>
           </div>
 
           <Drawer

@@ -4,7 +4,7 @@ import img1 from "../assets/images/1.png";
 import img2 from "../assets/images/2.png";
 import img3 from "../assets/images/3.png";
 import img4 from "../assets/images/4.png";
-import aiImg from "../assets/images/ai-integrated-web-development.png";
+// import aiImg from "../assets/images/ai-integrated-web-development.png";
 import flowImg1 from "../assets/images/flow-img-1.png";
 import flowImg2 from "../assets/images/flow-img-2.png";
 import flowImg3 from "../assets/images/flow-img-3.png";
@@ -178,7 +178,7 @@ const Home = () => {
                 <div className="h-[13rem]">
                   <img src={img} className="h-full object-cover" alt="" />
                 </div>
-                {/* <Link to="/" className="secondary-btn">
+                {/* <Link rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/" className="secondary-btn">
                   Learn More
                 </Link> */}
               </div>
@@ -200,7 +200,7 @@ const Home = () => {
           >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/"
+              rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
             >
               Start your own AI company
             </Link>
@@ -240,7 +240,7 @@ const Home = () => {
           >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/"
+              rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
             >
               Start your own AI company
             </Link>
@@ -346,7 +346,7 @@ const Home = () => {
             <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
               <Link
                 className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-                to="/"
+                rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
               >
                 Start your own AI company
               </Link>
@@ -397,7 +397,7 @@ const Home = () => {
           <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/"
+              rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
             >
               Start your own AI company
             </Link>
