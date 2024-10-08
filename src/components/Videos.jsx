@@ -34,7 +34,7 @@ const Videos = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-3 justify-center gap-5 max-w-5xl mx-auto">
+    <div data-aos="fade-up" className="grid md:grid-cols-3 justify-center gap-5 max-w-5xl mx-auto">
       <div className="h-[70vh] md:h-[75vh]">
         <video
           ref={video1Ref}

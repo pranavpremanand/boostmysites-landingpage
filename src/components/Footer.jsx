@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <div className="flex flex-col gap-4 md:items-center justify-center py-[4rem] text-secondary">
       <img src={logo} alt="logo" className="h-[5rem] object-contain" />
-      <div className="max-w-2xl w-full flex md:flex-row flex-col justify-between gap-10">
-        <div className="flex flex-col gap-3">
+      <div className="max-w-lg w-full flex md:flex-row flex-col items-start justify-between gap-10">
+        {/* <div className="flex flex-col gap-3">
           <h5 className="font-semibold">Courses</h5>
           <div className="flex md:flex-row flex-col gap-1 md:gap-5">
             <ul className="flex flex-col gap-1 text-sm">
@@ -44,9 +44,9 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> */}
         <div className="flex flex-col gap-3">
-          <h5 className="font-semibold">Boost my sites</h5>
+          <h5 className="font-semibold">BOOSTMYSITES</h5>
           <ul className="flex flex-col gap-1 text-sm">
             <li>
               <Link className="link" to="/">
@@ -65,8 +65,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div className="mt-6">
+      <div className="">
         <ul className="flex flex-col gap-1 text-sm">
           <li>
             <Link className="link" to="/">Log In</Link>
@@ -81,6 +80,7 @@ const Footer = () => {
             <Link className="link" to="/">Contact Us</Link>
           </li>
         </ul>
+      </div>
       </div>
     </div>
   );

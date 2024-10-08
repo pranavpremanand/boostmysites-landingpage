@@ -6,6 +6,7 @@ import banner4 from "../assets/images/banner-4.png";
 import { gsap } from "gsap";
 import JoinEntrepreneurs from "./JoinEntrepreneurs";
 import { Link } from "react-router-dom";
+import bgImg from '../assets/images/bg.png'
 
 const Banner = () => {
   useEffect(() => {
@@ -31,10 +32,10 @@ const Banner = () => {
         Create the AI Company <br />
         {"You've Always Imagined."}
       </h1>
-      <p
+      {/* <p
       data-aos="fade-up" className="text-center mt-4 tracking-widest text-lg font-light text-secondary">
         DON’T STUCK AT BORING WEBSITES
-      </p>
+      </p> */}
 
       <div className="py-[6rem]"
       data-aos="fade-up">

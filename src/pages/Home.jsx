@@ -130,19 +130,36 @@ const Home = () => {
     ]
   );
   return (
-    <>
+    <div className="">
       <div className="wrapper">
         <Banner />
-        <section id="features" className="flex flex-col items-center justify-center gap-10 text-center section-pt">
+      </div>
+      <section className="section-pt">
+        <FeaturedIn />
+      </section>
+      <div className="wrapper">
+        <section
+          id="features"
+          className="flex flex-col items-center justify-center gap-10 text-center section-pt"
+        >
           <div className="flex flex-col gap-2 items-center">
-            <p data-aos="fade-up" className="tracking-widest text-lg font-light text-secondary/70">
+            <p
+              data-aos="fade-up"
+              className="tracking-widest text-lg font-light text-secondary/70"
+            >
               Top-Notch Features
             </p>
-            <h2 data-aos="fade-up" className="text-4xl font-bold text-secondary">
+            <h2
+              data-aos="fade-up"
+              className="text-4xl font-bold text-secondary"
+            >
               Access to 2500+ comprehensive portfolio
             </h2>
           </div>
-          <div data-aos="fade-up" className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 mt-5 text-secondary">
+          <div
+            data-aos="fade-up"
+            className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 mt-5 text-secondary"
+          >
             {items.map(({ id, title, description, img }) => (
               <div
                 className="p-8 rounded-md bg-[#131B23] flex flex-col items-center gap-4 text-center"
@@ -161,20 +178,26 @@ const Home = () => {
                 <div className="h-[13rem]">
                   <img src={img} className="h-full object-cover" alt="" />
                 </div>
-                <Link to="/" className="secondary-btn">
+                {/* <Link to="/" className="secondary-btn">
                   Learn More
-                </Link>
+                </Link> */}
               </div>
             ))}
           </div>
         </section>
 
         <section className="section-pt flex flex-col items-center justify-center text-center gap-10">
-          <h1 data-aos="zoom-in" className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center">
-            Create the AI Company <br />
-            {"You've Always Imagined."}
+          <h1
+            data-aos="zoom-in"
+            className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center"
+          >
+            Launch the company <br />
+            {"you've always envisioned."}
           </h1>
-          <div data-aos="fade-up" className="flex flex-col gap-3 w-full justify-center items-center">
+          <div
+            data-aos="fade-up"
+            className="flex flex-col gap-3 w-full justify-center items-center"
+          >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
               to="/"
@@ -184,23 +207,26 @@ const Home = () => {
             <JoinEntrepreneurs />
           </div>
           <div className="mt-5 text-secondary" data-aos="fade-up">
-            <h6 className="text-2xl font-medium">UNLEASH YOUR AI WEBSITE</h6>
-            <p className="text-secondary/70 max-w-[40rem] my-5 text-sm">
+            {/* <h6 className="text-2xl font-medium">UNLEASH YOUR AI WEBSITE</h6> */}
+            <p className="text-secondary/70 max-w-[40rem] my-2 text-sm">
               We are constantly adding new technology and creation methods that
               we couldn’t previously disclose. Join{" "}
               <span className="text-secondary font-medium">BootmySites</span>{" "}
               and level up now.
             </p>
-            <div className="my-10 flex justify-center">
+            {/* <div className="my-10 flex justify-center">
               <img src={aiImg} className="h-[5rem] object-contain" alt="" />
-            </div>
+            </div> */}
           </div>
         </section>
 
         <section id="reviews" className="pt-[4rem] text-center text-secondary">
           <div className="max-w-[40rem] mx-auto">
-            <h1 data-aos="zoom-in" className="text-[2.7rem] md:text-5xl font-semibold text-primary">
-              Success Stories of Clients:
+            <h1
+              data-aos="zoom-in"
+              className="text-[2.7rem] md:text-5xl font-semibold text-primary"
+            >
+              Boostmysites reviews:
             </h1>
             <h1 data-aos="fade-up" className="text-2xl font-medium mt-[2rem]">
               These stories highlight how Boostmysites empowers entrepreneurs to
@@ -208,7 +234,10 @@ const Home = () => {
             </h1>
           </div>
           <ReviewSlider />
-          <div data-aos="fade-up" className="flex flex-col gap-3 w-full justify-center items-center section-pt">
+          <div
+            data-aos="fade-up"
+            className="flex flex-col gap-3 w-full justify-center items-center section-pt"
+          >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
               to="/"
@@ -223,7 +252,7 @@ const Home = () => {
           className="section-pt keen-slider max-w-[50rem] mx-auto"
           ref={sliderRef}
           data-aos="fade-up"
-          id='success-stories'
+          id="success-stories"
         >
           <div className="keen-slider__slide">
             <h3 className="text-primary font-bold text-xl mb-7 text-center">
@@ -280,18 +309,21 @@ const Home = () => {
           </div>
         </section>
 
-        <section data-aos="fade-up" className="section-pt text-center">
+        <section className="text-center section-pt">
           <h1 className="text-[2.7rem] md:text-5xl font-semibold text-primary max-w-[40rem] mx-auto">
             Turn your vision into the company of your dreams.
           </h1>
           <h2 className="font-medium text-secondary my-14 text-3xl">
             with BootmySite.com
           </h2>
-
           <Videos />
         </section>
 
-        <section id='courses' data-aos="fade-up" className="section-pt text-secondary">
+        <section
+          id="courses"
+          data-aos="fade-up"
+          className="section-pt text-secondary"
+        >
           <h2 className="text-[2.7rem] md:text-5xl text-center uppercase md:flex justify-center gap-5">
             <FaUnlockAlt className="text-4xl inline" /> You Will Get{" "}
             <span className="font-semibold">Access To</span>
@@ -308,8 +340,8 @@ const Home = () => {
           </div>
           <div data-aos="fade-up" className="section-pt">
             <h1 className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center">
-              Create the AI Company <br />
-              {"You've Always Imagined."}
+              Build the company <br />
+              {"you've always dreamed of."}
             </h1>
             <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
               <Link
@@ -323,9 +355,8 @@ const Home = () => {
           </div>
         </section>
 
-        <section
-              data-aos="fade-up" className="section-pt">
-          <div className="grid grid-cols-1 gap-24 text-secondary max-w-6xl mx-auto">
+        <section data-aos="fade-up" className="section-pt">
+          <div className="grid grid-cols-1 gap-10 md:gap-24 text-secondary max-w-6xl mx-auto">
             {workFlow.map((step) => (
               <div
                 key={step.id}
@@ -333,35 +364,31 @@ const Home = () => {
                   step.id % 2 === 0 && "md:flex-row-reverse"
                 } gap-5 md:gap-10`}
               >
-                <div className="w-full md:w-[50%]">
+                {/* <div className="w-full md:w-[50%]">
                   <img
                     src={step.img}
                     alt={step.title}
                     className="w-full max-h-[60vh] h-full md:max-h-full object-contain md:object-cover rounded-lg"
                   />
-                </div>
+                </div> */}
                 <div className="w-full md:w-[50%] flex flex-col gap-4">
                   <h5 className="text-lg font-medium">{step.title}</h5>
-                <ul className="border flex flex-col gap-5 h-fit border-dashed border-[#9747FF] rounded-md p-4">
-                  {step.howWeDo.map((step) => (
-                    <li className="bg-[#131B23] p-4 rounded-md" key={step}>
-                      &#x2022; {step}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="border flex flex-col gap-5 h-fit border-dashed border-[#9747FF] rounded-md p-4">
+                    {step.howWeDo.map((step) => (
+                      <li className="bg-[#131B23] p-4 rounded-md" key={step}>
+                        &#x2022; {step}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
           </div>
           <h1 className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center my-16">
-            Create the AI Company <br />
-            {"You've Always Imagined."}
+            Bring your dream company to life.
           </h1>
         </section>
       </div>
-      <section>
-        <FeaturedIn />
-      </section>
       <div className="wrapper">
         <section data-aos="fade-up" className="section-pt">
           <FAQ />
@@ -387,7 +414,7 @@ const Home = () => {
         </section>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

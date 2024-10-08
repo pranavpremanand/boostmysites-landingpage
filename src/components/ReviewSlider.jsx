@@ -57,7 +57,7 @@ const ReviewSlider = () => {
   const [leftReview, centerReview, rightReview] = getThreeReviews();
 
   return (
-    <div data-aos="fade-up" className="min-h-[16rem] flex relative mt-20 text-tertiary md:w-[80%] mx-auto">
+    <div data-aos="fade-up" className="h-[25rem] md:h-[18rem] flex relative mt-20 text-tertiary md:w-[80%] mx-auto">
       <div className="h-full bg-secondary/90 rounded-lg p-3 md:p-8 flex flex-col gap-2 items-center justify-center">
         <img
           src={profileImg}

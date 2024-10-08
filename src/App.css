@@ -21,6 +21,15 @@
   }
 }
 
+/* :root{
+  background-image: url('./src/assets/images/bg.png');
+  background-color: #000000;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+  overflow-x: hidden;
+} */
+
 html {
   background: #000000;
   overflow-x: hidden;
