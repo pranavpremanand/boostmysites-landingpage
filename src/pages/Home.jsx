@@ -133,7 +133,7 @@ const Home = () => {
     <>
       <div className="wrapper">
         <Banner />
-        <section className="flex flex-col items-center justify-center gap-10 text-center section-pt">
+        <section id="features" className="flex flex-col items-center justify-center gap-10 text-center section-pt">
           <div className="flex flex-col gap-2 items-center">
             <p data-aos="fade-up" className="tracking-widest text-lg font-light text-secondary/70">
               Top-Notch Features
@@ -197,10 +197,10 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="pt-[4rem] text-center text-secondary">
+        <section id="reviews" className="pt-[4rem] text-center text-secondary">
           <div className="max-w-[40rem] mx-auto">
             <h1 data-aos="zoom-in" className="text-[2.7rem] md:text-5xl font-semibold text-primary">
-              Sucess Stories of Clients:
+              Success Stories of Clients:
             </h1>
             <h1 data-aos="fade-up" className="text-2xl font-medium mt-[2rem]">
               These stories highlight how Boostmysites empowers entrepreneurs to
@@ -223,6 +223,7 @@ const Home = () => {
           className="section-pt keen-slider max-w-[50rem] mx-auto"
           ref={sliderRef}
           data-aos="fade-up"
+          id='success-stories'
         >
           <div className="keen-slider__slide">
             <h3 className="text-primary font-bold text-xl mb-7 text-center">
@@ -290,7 +291,7 @@ const Home = () => {
           <Videos />
         </section>
 
-        <section data-aos="fade-up" className="section-pt text-secondary">
+        <section id='courses' data-aos="fade-up" className="section-pt text-secondary">
           <h2 className="text-[2.7rem] md:text-5xl text-center uppercase md:flex justify-center gap-5">
             <FaUnlockAlt className="text-4xl inline" /> You Will Get{" "}
             <span className="font-semibold">Access To</span>

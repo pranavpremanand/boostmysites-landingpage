@@ -42,7 +42,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="mx-auto text-secondary flex flex-col items-center justify-center">
+    <div id="faq" className="mx-auto text-secondary flex flex-col items-center justify-center">
       <h3 className="text-3xl text-center">FREQUENTLY ASKED QUESTIONS</h3>
       <div className="mt-10 flex flex-col gap-4 w-full">
         {faqs.map((faq, index) => (

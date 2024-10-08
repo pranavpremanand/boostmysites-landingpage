@@ -1,40 +1,41 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
 import { useEffect, useState } from "react";
 import Drawer from "react-modern-drawer";
 import { Divide as Hamburger } from "hamburger-react";
 import { IoMdClose } from "react-icons/io";
+import { Link } from "react-scroll";
 
 const options = [
   {
     id: 1,
     title: "Features",
-    path: "/",
+    path: "features",
   },
   {
     id: 2,
     title: "Client Reviews",
-    path: "/",
+    path: "reviews",
   },
   {
     id: 3,
     title: "Success Stories",
-    path: "/",
+    path: "success-stories",
   },
   {
     id: 4,
     title: "Courses",
-    path: "/",
+    path: "courses",
   },
   {
     id: 5,
     title: "FAQ",
-    path: "/",
+    path: "faq",
   },
   {
     id: 6,
     title: "Contact",
-    path: "/",
+    path: "contact",
   },
 ];
 
@@ -73,11 +74,23 @@ const Header = () => {
       <div className="w-full">
         <div className="wrapper flex justify-between items-center w-full">
           <Link to="/">
-            <img src={logo} alt="" className="h-[4rem] md:h-[5rem] object-contain" />
+            <img
+              src={logo}
+              alt=""
+              className="h-[4rem] md:h-[5rem] object-contain"
+            />
           </Link>
           <div className="text-sm hidden lg:flex items-center gap-7 w-full justify-end">
             {options.map((option) => (
-              <Link to={option.path} key={option.id} className="text-secondary">
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={1000}
+                to={option.path}
+                key={option.id}
+                className="text-secondary"
+              >
                 {option.title}
               </Link>
             ))}
@@ -88,11 +101,11 @@ const Header = () => {
               Join Now
             </Link>
           </div>
-          
+
           <Drawer
             open={isOpen}
             onClose={toggleDrawer}
-            direction='right'
+            direction="right"
             className="py-4 px-10 z-10 bg-tertiary text-secondary"
           >
             <div className="mb-6 flex items-center justify-end pr-[.7rem] py-[.4rem]">
@@ -104,7 +117,7 @@ const Header = () => {
               </button>
             </div>
             <div className="flex flex-col gap-6">
-              {options.map(({ title, link,id }) => (
+              {options.map(({ title, link, id }) => (
                 <Link
                   onClick={() => setIsOpen(false)}
                   key={id}
@@ -120,7 +133,10 @@ const Header = () => {
               ))}
             </div>
           </Drawer>
-          <div className="block lg:hidden justify-self-end" onClick={toggleDrawer}>
+          <div
+            className="block lg:hidden justify-self-end"
+            onClick={toggleDrawer}
+          >
             <Hamburger
               color="#FFAB23"
               size="23"
@@ -130,7 +146,6 @@ const Header = () => {
             />
           </div>
         </div>
-        
       </div>
     </div>
   );
