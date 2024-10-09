@@ -14,7 +14,7 @@
     @apply font-medium bg-transparent hover:bg-primary hover:text-tertiary text-primary border border-primary py-2 px-4 rounded-md transition-all duration-300;
   }
   .section-pt {
-    @apply pt-28;
+    @apply pt-20;
   }
   .link {
     @apply text-secondary hover:text-primary transition-all duration-300;
