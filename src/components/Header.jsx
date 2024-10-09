@@ -118,12 +118,12 @@ const Header = () => {
               </button>
             </div>
             <div className="flex flex-col gap-6">
-              {options.map(({ title, link, id }) => (
+              {options.map(({ title, path, id }) => (
                 <Link
                   onClick={() => setIsOpen(false)}
                   key={id}
                   className="text-3xl font-medium transition-colors duration-300"
-                  to={link}
+                  to={path}
                   spy={true}
                   smooth={true}
                   offset={-70}
