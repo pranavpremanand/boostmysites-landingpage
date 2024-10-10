@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import ReactPlayer from "react-player";
 import vid1 from "../assets/videos/vid1.mp4";
 import vid2 from "../assets/videos/vid2.mp4";
 import vid3 from "../assets/videos/vid3.mp4";
@@ -12,52 +13,65 @@ const Videos = () => {
   const handlePlay = (videoRef) => {
     // Pause all other videos except the one clicked
     if (video1Ref.current && video1Ref.current !== videoRef.current) {
-      video1Ref.current.pause();
-      video1Ref.current.currentTime = 0; // Reset to the beginning
+      video1Ref.current.seekTo(0); // Reset to the beginning
+      video1Ref.current.getInternalPlayer().pause();
     }
     if (video2Ref.current && video2Ref.current !== videoRef.current) {
-      video2Ref.current.pause();
-      video2Ref.current.currentTime = 0;
+      video2Ref.current.seekTo(0);
+      video2Ref.current.getInternalPlayer().pause();
     }
     if (video3Ref.current && video3Ref.current !== videoRef.current) {
-      video3Ref.current.pause();
-      video3Ref.current.currentTime = 0;
+      video3Ref.current.seekTo(0);
+      video3Ref.current.getInternalPlayer().pause();
     }
 
-    // Toggle play/stop for the clicked video
-    if (videoRef.current.paused) {
-      videoRef.current.play(); // If the video is paused, start playing it
+    // Toggle play/pause for the clicked video
+    const player = videoRef.current.getInternalPlayer();
+    if (player.paused) {
+      videoRef.current.seekTo(0);
+      player.play();
     } else {
-      videoRef.current.pause(); // If the video is playing, stop it
-      videoRef.current.currentTime = 0; // Reset to the beginning
+      player.pause();
+      videoRef.current.seekTo(0); // Reset to the beginning
     }
   };
 
   return (
-    <div data-aos="fade-up" className="grid md:grid-cols-3 justify-center gap-5 max-w-5xl mx-auto">
+    <div
+      className="grid md:grid-cols-3 justify-center gap-5 max-w-5xl mx-auto"
+    >
       <div className="h-[70vh] md:h-[75vh]">
-        <video
+        <ReactPlayer
           ref={video1Ref}
           className="h-full w-full"
-          src={vid1}
+          url={vid1}
+          playing={false}
+          width="100%"
+          height="100%"
           onClick={() => handlePlay(video1Ref)}
-        ></video>
+        />
       </div>
       <div className="h-[70vh] md:h-[75vh]">
-        <video
+        <ReactPlayer
           ref={video2Ref}
           className="h-full w-full"
-          src={vid2}
+          url={vid2}
+          playing={false}
+          width="100%"
+          height="100%"
           onClick={() => handlePlay(video2Ref)}
-        ></video>
+        />
       </div>
       <div className="h-[70vh] md:h-[75vh]">
-        <video
+        <ReactPlayer
           ref={video3Ref}
           className="h-full w-full"
-          src={vid3}
+          url={vid3}
+          playing={false}
+          width="100%"
+          height="100%"
           onClick={() => handlePlay(video3Ref)}
-        ></video>
+        />
       </div>
     </div>
   );

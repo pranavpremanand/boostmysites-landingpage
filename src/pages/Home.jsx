@@ -19,6 +19,12 @@ import FAQ from "../components/FAQ";
 import OurOffices from "../components/OurOffices";
 import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
+import access1 from "../assets/images/AI-Driven Design.jpg";
+import access2 from "../assets/images/Personalized Content.jpg";
+import access3 from "../assets/images/Optimized for Conversions.jpg";
+import access4 from "../assets/images/Predictive Analytics.jpg";
+import access5 from "../assets/images/Automated Marketing.jpg";
+import access6 from "../assets/images/Continuous Optimization.jpg";
 
 const items = [
   {
@@ -52,12 +58,12 @@ const items = [
 ];
 
 const accesses = [
-  "AI-Driven Design",
-  "Personalized Content",
-  "Optimized for Conversions",
-  "Predictive Analytics",
-  "Automated Marketing",
-  "Continuous Optimization",
+  {title:"AI-Driven Design",img:access1},
+  {title:"Personalized Content",img:access2},
+  {title:"Optimized for Conversions",img:access3},
+  {title:"Predictive Analytics",img:access4},
+  {title:"Automated Marketing",img:access5},
+  {title:"Continuous Optimization",img:access6},
 ];
 
 const workFlow = [
@@ -130,13 +136,10 @@ const Home = () => {
     ]
   );
   return (
-    <div className="">
+    <div className="" id="home">
       <div className="wrapper">
         <Banner />
       </div>
-      <section className="section-pt">
-        <FeaturedIn />
-      </section>
       <div className="wrapper">
         <section
           id="features"
@@ -189,7 +192,7 @@ const Home = () => {
         <section className="section-pt flex flex-col items-center justify-center text-center gap-10">
           <h1
             data-aos="zoom-in"
-            className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center"
+            className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center"
           >
             Launch the company <br />
             {"you've always envisioned."}
@@ -224,7 +227,7 @@ const Home = () => {
           <div className="max-w-[40rem] mx-auto">
             <h1
               data-aos="zoom-in"
-              className="text-[2.7rem] md:text-5xl font-semibold text-primary"
+              className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary"
             >
               Boostmysites reviews:
             </h1>
@@ -310,7 +313,7 @@ const Home = () => {
         </section>
 
         <section className="text-center section-pt">
-          <h1 className="text-[2.7rem] md:text-5xl font-semibold text-primary max-w-[40rem] mx-auto">
+          <h1 className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary max-w-[40rem] mx-auto">
             Turn your vision into the company of your dreams.
           </h1>
           <h2 className="font-medium text-secondary my-14 text-3xl">
@@ -324,22 +327,23 @@ const Home = () => {
           data-aos="fade-up"
           className="section-pt text-secondary"
         >
-          <h2 className="text-[2.7rem] md:text-5xl text-center uppercase md:flex justify-center gap-5">
+          <h2 className=" text-[2.7rem] leading-[3rem] md:text-5xl text-center uppercase md:flex justify-center gap-5">
             <FaUnlockAlt className="text-4xl inline" /> You Will Get{" "}
             <span className="font-semibold">Access To</span>
           </h2>
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-10 max-w-2xl mx-auto">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-10 max-w-3xl mx-auto">
             {accesses.map((access) => (
               <div
-                key={access}
-                className="cursor-pointer bg-[#5B5A58] border border-primary hover:bg-[#D18F48] transition-colors duration-200 rounded-md p-5 text-xl sm:text-2xl flex justify-center items-center text-center w-full aspect-square"
-              >
-                <p>{access}</p>
+                key={access.title}
+                style={{backgroundImage: `url(${access.img})`}}
+                className="relative bg-center group overflow-hidden hover:scale-105 bg-cover cursor-pointer transition-all duration-200 rounded-md p-5 text-xl sm:text-2xl flex justify-center items-center text-center w-full aspect-square"
+              ><div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 h-full w-full"></div>
+                <p className="z-10 font-semibold">{access.title}</p>
               </div>
             ))}
           </div>
           <div data-aos="fade-up" className="section-pt">
-            <h1 className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center">
+            <h1 className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center">
               Build the company <br />
               {"you've always dreamed of."}
             </h1>
@@ -384,13 +388,17 @@ const Home = () => {
               </div>
             ))}
           </div>
-          <h1 className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center my-16">
+          <h1 className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center mt-20">
             Bring your dream company to life.
           </h1>
         </section>
       </div>
+
+      <section className="py-14">
+        <FeaturedIn />
+      </section>
       <div className="wrapper">
-        <section data-aos="fade-up" className="section-pt">
+        <section data-aos="fade-up" className="">
           <FAQ />
         </section>
         <div className="mt-20">
@@ -412,6 +420,7 @@ const Home = () => {
         <section data-aos="fade-up" className="section-pt">
           <OurOffices />
         </section>
+        
         <Footer />
       </div>
     </div>

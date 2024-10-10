@@ -35,17 +35,20 @@ const FeaturedIn = () => {
     },
   });
   return (
-    <div className="bg-secondary">
-      <div ref={sliderRef} className="keen-slider">
-        {[img1, img2, img3, img4, img5].map((img, index) => (
-          <div key={index} className="keen-slider__slide flex justify-center">
-            <img
-              src={img}
-              alt="featured in"
-              className="h-[7rem] w-[12rem] object-contain"
-            />
-          </div>
-        ))}
+    <div className="text-white flex flex-col gap-5 py-5">
+      <h3 className="text-3xl font-medium text-center">Featured In</h3>
+      <div className="bg-secondary">
+        <div ref={sliderRef} className="keen-slider">
+          {[img1, img2, img3, img4, img5].map((img, index) => (
+            <div key={index} className="keen-slider__slide flex justify-center">
+              <img
+                src={img}
+                alt="featured in"
+                className="h-[7rem] w-[12rem] object-contain"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

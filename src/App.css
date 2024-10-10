@@ -5,7 +5,7 @@
 
 @layer utilities {
   .wrapper {
-    @apply max-w-7xl mx-auto px-4;
+    @apply max-w-7xl mx-auto px-8;
   }
   .primary-btn {
     @apply font-medium bg-gradient-to-r from-primary to-[#D5AA12] hover:-translate-y-1 shadow-large shadow-transparent hover:shadow-primary/[35%] text-tertiary border border-primary py-2 px-4 rounded-md transition-all duration-300;
@@ -19,16 +19,45 @@
   .link {
     @apply text-secondary hover:text-primary transition-all duration-300;
   }
+  .active {
+    @apply text-primary;
+  }
 }
 
-/* :root{
-  background-image: url('./src/assets/images/bg.png');
+/* :root {
   background-color: #000000;
   background-attachment: fixed;
   background-position: center;
   background-size: 100% 100%;
   overflow-x: hidden;
+  position: relative;
 } */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 105vw;
+  height: 105vh;
+  overflow: hidden;
+  background-image: url("./src/assets/images/bg-image-1.jpg");
+  background-size: cover; /* Ensure the background fills the element */
+  background-position: center;
+  z-index: -1; /* Ensure it stays in the background */
+  opacity: 0.3; /* Set the opacity for the background */
+  pointer-events: none; /* Disable interaction with this pseudo-element */
+  animation: moveBackground 100s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
 
 html {
   background: #000000;
@@ -41,10 +70,9 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #FFAB23;
+  background-color: #ffab23;
   border-radius: 8px;
 }
-
 
 h2,
 h3,

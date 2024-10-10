@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import banner1 from "../assets/images/banner-1.png";
-import banner2 from "../assets/images/banner-2.png";
-import banner3 from "../assets/images/banner-3.png";
-import banner4 from "../assets/images/banner-4.png";
+import banner1 from "../assets/images/banner-1.jpg";
+import banner2 from "../assets/images/banner-2.jpg";
+import banner3 from "../assets/images/banner-3.jpg";
+import banner4 from "../assets/images/banner-4.jpg";
 import { gsap } from "gsap";
 import JoinEntrepreneurs from "./JoinEntrepreneurs";
 import { Link } from "react-router-dom";
@@ -28,7 +28,7 @@ const Banner = () => {
     <div className="section-pt">
       <h1
       data-aos="zoom-in"
-      className="text-[2.7rem] md:text-5xl font-semibold text-primary text-center">
+      className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center">
         Create the AI Company <br />
         {"You've Always Imagined."}
       </h1>
@@ -37,27 +37,27 @@ const Banner = () => {
         DON’T STUCK AT BORING WEBSITES
       </p> */}
 
-      <div className="py-[6rem]"
+      <div className="py-[5rem]"
       data-aos="fade-up">
-        <div className="h-[50vh] w-full lg:w-[80%] relative mx-auto -z-10">
+        <div className="h-[40vh] sm:h-[50vh] w-full lg:w-[80%] relative mx-auto -z-10">
+          <img
+            src={banner3}
+            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
+            alt=""
+          />
           <img
             src={banner1}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0"
+            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
           />
           <img
             src={banner2}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0"
-            alt=""
-          />
-          <img
-            src={banner3}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0"
+            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
           />
           <img
             src={banner4}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0"
+            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
           />
         </div>

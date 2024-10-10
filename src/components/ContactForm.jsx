@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 // import { SpinnerContext } from "./SpinnerContext";
-import img from "../assets/images/banner-4.png";
+import img from "../assets/images/contact-us.jpg";
 
 const ContactForm = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
@@ -63,7 +63,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <div id='contact' className="grid md:grid-cols-2 gap-10 text-secondary">
+    <div id='contact' className="grid md:grid-cols-2 gap-5 text-secondary">
       <form
         ref={form}
         onSubmit={handleSubmit(handleFormSubmit)}
@@ -73,7 +73,7 @@ const ContactForm = () => {
         <h2 className="font-medium text-3xl mb-4 sm:mb-6 text-center sm:text-start">
           Get In Touch With Us
         </h2>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4 mt-6">
           <div className="grid grid-cols-1 relative">
             <label htmlFor="" className="">
               Full Name

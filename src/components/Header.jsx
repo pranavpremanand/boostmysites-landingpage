@@ -1,11 +1,10 @@
-// import { Link } from "react-router-dom";
 import logo from "../assets/logo/logo.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Drawer from "react-modern-drawer";
 import { Divide as Hamburger } from "hamburger-react";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-scroll";
-import {Link as RLink} from 'react-router-dom'
+import { Link as RLink } from "react-router-dom";
 
 const options = [
   {
@@ -48,37 +47,44 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     if (scrollPosition > 100) {
-  //       // Change 100 to whatever scroll position you prefer
-  //       setIsScrolled(true);
-  //     } else {
-  //       setIsScrolled(false);
-  //     }
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 100) {
+        // Change 100 to whatever scroll position you prefer
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-  //   window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  //   // Clean up event listener on unmount
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div
       className={`sticky z-50 py-2 flex justify-center w-full top-0 left-0 ${
-        isScrolled ? "backdrop-blur-md bg-transparent" : "bg-quaternary"
+        isScrolled ? "backdrop-blur-md bg-quaternary/30" : "bg-quaternary"
       }`}
     >
       <div className="w-full">
         <div className="wrapper flex justify-between items-center w-full">
-          <Link to="/">
+          <Link
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={1000}
+            className="cursor-pointer"
+          >
             <img
               src={logo}
               alt=""
-              className="h-[4rem] md:h-[5rem] object-contain"
+              className="h-[4rem] md:h-[5rem] object-contain -mb-3"
             />
           </Link>
           <div className="text-sm hidden lg:flex items-center gap-7 w-full justify-end">
@@ -90,15 +96,26 @@ const Header = () => {
                 duration={1000}
                 to={option.path}
                 key={option.id}
-                className="text-secondary"
+                className="text-secondary link cursor-pointer"
+                activeClass="active"
               >
                 {option.title}
               </Link>
             ))}
-            <RLink rel="noreferrer" target="_blank" to="https://course.boostmysites.com/wp-login.php?redirect_to=courses/flutter-app-development-program" className="text-primary">
+            <RLink
+              rel="noreferrer"
+              target="_blank"
+              to="https://course.boostmysites.com/wp-login.php?redirect_to=courses/flutter-app-development-program"
+              className="text-primary"
+            >
               Login
             </RLink>
-            <RLink rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/" className="primary-btn">
+            <RLink
+              rel="noreferrer"
+              target="_blank"
+              to="https://boostmysites.com/aiexpert/"
+              className="primary-btn"
+            >
               Join Now
             </RLink>
           </div>
@@ -122,7 +139,7 @@ const Header = () => {
                 <Link
                   onClick={() => setIsOpen(false)}
                   key={id}
-                  className="text-3xl font-medium transition-colors duration-300"
+                  className="text-3xl font-medium transition-colors duration-300 link"
                   to={path}
                   spy={true}
                   smooth={true}

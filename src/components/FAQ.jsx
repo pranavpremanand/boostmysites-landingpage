@@ -42,7 +42,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div id="faq" className="mx-auto text-secondary flex flex-col items-center justify-center">
+    <div
+      id="faq"
+      className="mx-auto text-secondary flex flex-col items-center justify-center"
+    >
       <h3 className="text-3xl text-center">FREQUENTLY ASKED QUESTIONS</h3>
       <div className="mt-10 flex flex-col gap-4 w-full">
         {faqs.map((faq, index) => (
@@ -59,10 +62,14 @@ const FAQItem = ({ faq }) => {
     <div className="flex flex-col gap-4 bg-[#131B23] rounded-md px-4 py-6 w-full">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-between gap-5 w-full font-semibold text-start"
+        className="flex justify-between gap-5 w-full font-medium text-start"
       >
         {faq.question}{" "}
-        {isOpen ? <FaMinus /> : <FaPlus />}
+        {isOpen ? (
+          <FaMinus className="text-xl" />
+        ) : (
+          <FaPlus className="text-xl" />
+        )}
       </button>
       {isOpen && <p className="p-[1rem]">{faq.answer}</p>}
     </div>
