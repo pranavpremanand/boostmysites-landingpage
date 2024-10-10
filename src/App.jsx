@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 AOS.init({
   once: true,
   duration:500,
+  offset: -50
 });
 
 function App() {

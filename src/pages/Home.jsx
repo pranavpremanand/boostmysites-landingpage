@@ -1,30 +1,29 @@
-import Banner from "../components/Banner";
 import crmImg from "../assets/images/customer-relationship-management.png";
 import img1 from "../assets/images/1.png";
 import img2 from "../assets/images/2.png";
 import img3 from "../assets/images/3.png";
 import img4 from "../assets/images/4.png";
-// import aiImg from "../assets/images/ai-integrated-web-development.png";
 import flowImg1 from "../assets/images/flow-img-1.png";
 import flowImg2 from "../assets/images/flow-img-2.png";
 import flowImg3 from "../assets/images/flow-img-3.png";
-import { Link } from "react-router-dom";
-import {Link as SLink} from "react-scroll";
-import JoinEntrepreneurs from "../components/JoinEntrepreneurs";
-import ReviewSlider from "../components/ReviewSlider";
+import { Link as SLink } from "react-scroll";
 import { useKeenSlider } from "keen-slider/react";
-import Videos from "../components/Videos";
 import { FaUnlockAlt } from "react-icons/fa";
-import FeaturedIn from "../components/FeaturedIn";
-import FAQ from "../components/FAQ";
-import OurOffices from "../components/OurOffices";
-import ContactForm from "../components/ContactForm";
 import access1 from "../assets/images/AI-Driven Design.jpg";
 import access2 from "../assets/images/Personalized Content.jpg";
 import access3 from "../assets/images/Optimized for Conversions.jpg";
 import access4 from "../assets/images/Predictive Analytics.jpg";
 import access5 from "../assets/images/Automated Marketing.jpg";
 import access6 from "../assets/images/Continuous Optimization.jpg";
+import { lazy } from "react";
+const Banner = lazy(() => import("../components/Banner"));
+const FeaturedIn = lazy(() => import("../components/FeaturedIn"));
+const FAQ = lazy(() => import("../components/FAQ"));
+const JoinEntrepreneurs = lazy(() => import("../components/JoinEntrepreneurs"));
+const ReviewSlider = lazy(() => import("../components/ReviewSlider"));
+const Videos = lazy(() => import("../components/Videos"));
+const OurOffices = lazy(() => import("../components/OurOffices"));
+const ContactForm = lazy(() => import("../components/ContactForm"));
 
 const items = [
   {
@@ -358,9 +357,9 @@ const Home = () => {
               <SLink
                 className="primary-btn font-medium w-[20rem] flex justify-center py-3"
                 to="contact"
-              smooth={true}
-              spy={true}
-              duration={1000}
+                smooth={true}
+                spy={true}
+                duration={1000}
               >
                 Start your own AI company
               </SLink>

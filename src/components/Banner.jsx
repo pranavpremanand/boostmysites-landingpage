@@ -44,21 +44,25 @@ const Banner = () => {
             src={banner3}
             className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
+            loading="lazy"
           />
           <img
             src={banner1}
             className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
+            loading="lazy"
           />
           <img
             src={banner2}
             className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
+            loading="lazy"
           />
           <img
             src={banner4}
             className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
             alt=""
+            loading="lazy"
           />
         </div>
       </div>

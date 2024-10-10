@@ -162,6 +162,7 @@ const ContactForm = () => {
           src={img}
           className="h-full w-full object-cover rounded-lg"
           alt=""
+          loading="lazy"
         />
       </div>
     </div>
