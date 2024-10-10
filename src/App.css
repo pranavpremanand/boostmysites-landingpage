@@ -38,10 +38,10 @@ body::before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 105vw;
-  height: 105vh;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
-  background-image: url("./src/assets/images/bg-image-1.jpg");
+  background-image: url("/assets/images/bg-image-1.jpg");
   background-size: cover; /* Ensure the background fills the element */
   background-position: center;
   z-index: -1; /* Ensure it stays in the background */
