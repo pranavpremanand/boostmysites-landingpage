@@ -67,7 +67,7 @@ const Header = () => {
   }, []);
   return (
     <div
-      className={`fixed z-50 py-2 flex justify-center w-full top-0 left-0 ${
+      className={`fixed z-50 py-3 flex justify-center w-full top-0 left-0 ${
         isScrolled ? "backdrop-blur-md bg-quaternary/30" : "bg-quaternary"
       }`}
     >
