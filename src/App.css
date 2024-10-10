@@ -42,7 +42,7 @@ body::before {
   height: 100vh;
   overflow: hidden;
   background-image: url("/images/bg-image-1.jpg");
-  background-size: cover; /* Ensure the background fills the element */
+  background-size: 15%; /* Ensure the background fills the element */
   background-position: center;
   z-index: -1; /* Ensure it stays in the background */
   opacity: 0.3; /* Set the opacity for the background */
