@@ -134,12 +134,12 @@ const Header = () => {
                 <IoMdClose />
               </button>
             </div>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               {options.map(({ title, path, id }) => (
                 <Link
                   onClick={() => setIsOpen(false)}
                   key={id}
-                  className="text-3xl font-medium transition-colors duration-300 link"
+                  className="text-2xl font-medium transition-colors duration-300 link"
                   to={path}
                   spy={true}
                   smooth={true}
