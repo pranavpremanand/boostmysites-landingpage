@@ -67,7 +67,7 @@ body::before {
 }
 
 html,body {
-  background: #000000;
+  /* background: #000000; */
   overflow-x: hidden;
 }
 
