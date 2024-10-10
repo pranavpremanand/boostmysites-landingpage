@@ -10,6 +10,7 @@ import { Toaster } from "react-hot-toast";
 // import { SpinnerContext } from "./components/SpinnerContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "./components/Footer";
 
 AOS.init({
   once: true,
@@ -29,6 +30,7 @@ function App() {
             <>
               <Header />
               <Home/>
+              <Footer />
             </>
           }
         />

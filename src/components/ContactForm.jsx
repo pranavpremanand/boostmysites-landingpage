@@ -63,7 +63,7 @@ const ContactForm = () => {
     }
   };
   return (
-    <div id='contact' className="grid md:grid-cols-2 gap-5 text-secondary">
+    <div id='contact' className="grid md:grid-cols-2 gap-5 text-secondary section-pt">
       <form
         ref={form}
         onSubmit={handleSubmit(handleFormSubmit)}

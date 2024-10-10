@@ -1,7 +1,7 @@
-import dubaiImg from "../assets/images/dubai.png";
-import hongkongImg from "../assets/images/hongkong.png";
-import bangkokImg from "../assets/images/bangkok.png";
-import bangaloreImg from "../assets/images/bangalore.png";
+import dubaiImg from "../assets/images/dubai.jpg";
+import hongkongImg from "../assets/images/hongkong.jpg";
+import bangkokImg from "../assets/images/bangkok.jpg";
+import bangaloreImg from "../assets/images/bangalore.jpg";
 
 const offices = [
   {
@@ -37,10 +37,10 @@ const OurOffices = () => {
         {offices.map((office) => (
           <div
             key={office.id}
-            className="flex flex-col items-center justify-center gap-3 sm:gap-10"
+            className="flex flex-col items-center justify-center gap-3 sm:gap-6"
           >
             <div className="w-full flex justify-center">
-              <img src={office.img} alt="office" className="object-cover" />
+              <img src={office.img} alt="office" className="object-cover rounded-3xl" />
             </div>
             <p className="leading-loose">&#x2022; {office.location}</p>
           </div>

@@ -37,40 +37,76 @@ const Videos = () => {
   };
 
   return (
-    <div
-      className="grid md:grid-cols-3 justify-center gap-5 max-w-5xl mx-auto"
-    >
-      <div className="h-[70vh] md:h-[75vh]">
+    <div className="grid md:grid-cols-3 justify-center gap-5 max-w-5xl mx-auto">
+      <div className="h-[70vh] md:h-[75vh] relative">
+      <div
+          onClick={() => handlePlay(video1Ref)}
+          className="absolute top-0 left-0 w-full h-full z-10"
+        ></div>
         <ReactPlayer
           ref={video1Ref}
-          className="h-full w-full"
+          className="h-full w-full z-0"
           url={vid1}
           playing={false}
           width="100%"
           height="100%"
-          onClick={() => handlePlay(video1Ref)}
+          pip={false}
+          config={{
+            file: {
+              attributes: {
+                controlsList: "nodownload noplaybackrate",
+                disablePictureInPicture: true,
+              },
+            },
+          }}
+          // onClick={() => handlePlay(video1Ref)}
         />
       </div>
-      <div className="h-[70vh] md:h-[75vh]">
+      <div className="h-[70vh] md:h-[75vh] relative">
+      <div
+          onClick={() => handlePlay(video2Ref)}
+          className="absolute top-0 left-0 w-full h-full z-10"
+        ></div>
         <ReactPlayer
           ref={video2Ref}
-          className="h-full w-full"
+          className="h-full w-full z-0"
           url={vid2}
           playing={false}
           width="100%"
           height="100%"
-          onClick={() => handlePlay(video2Ref)}
+          pip={false}
+          config={{
+            file: {
+              attributes: {
+                controlsList: "nodownload noplaybackrate",
+                disablePictureInPicture: true,
+              },
+            },
+          }}
+          // onClick={() => handlePlay(video2Ref)}
         />
       </div>
-      <div className="h-[70vh] md:h-[75vh]">
+      <div className="h-[70vh] md:h-[75vh] relative">
+        <div
+          onClick={() => handlePlay(video3Ref)}
+          className="absolute top-0 left-0 w-full h-full z-10"
+        ></div>
         <ReactPlayer
           ref={video3Ref}
-          className="h-full w-full"
+          className="h-full w-full z-0"
           url={vid3}
           playing={false}
           width="100%"
           height="100%"
-          onClick={() => handlePlay(video3Ref)}
+          pip={false}
+          config={{
+            file: {
+              attributes: {
+                controlsList: "nodownload noplaybackrate",
+                disablePictureInPicture: true,
+              },
+            },
+          }}
         />
       </div>
     </div>

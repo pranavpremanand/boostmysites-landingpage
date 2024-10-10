@@ -9,6 +9,7 @@ import flowImg1 from "../assets/images/flow-img-1.png";
 import flowImg2 from "../assets/images/flow-img-2.png";
 import flowImg3 from "../assets/images/flow-img-3.png";
 import { Link } from "react-router-dom";
+import {Link as SLink} from "react-scroll";
 import JoinEntrepreneurs from "../components/JoinEntrepreneurs";
 import ReviewSlider from "../components/ReviewSlider";
 import { useKeenSlider } from "keen-slider/react";
@@ -17,7 +18,6 @@ import { FaUnlockAlt } from "react-icons/fa";
 import FeaturedIn from "../components/FeaturedIn";
 import FAQ from "../components/FAQ";
 import OurOffices from "../components/OurOffices";
-import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 import access1 from "../assets/images/AI-Driven Design.jpg";
 import access2 from "../assets/images/Personalized Content.jpg";
@@ -58,12 +58,12 @@ const items = [
 ];
 
 const accesses = [
-  {title:"AI-Driven Design",img:access1},
-  {title:"Personalized Content",img:access2},
-  {title:"Optimized for Conversions",img:access3},
-  {title:"Predictive Analytics",img:access4},
-  {title:"Automated Marketing",img:access5},
-  {title:"Continuous Optimization",img:access6},
+  { title: "AI-Driven Design", img: access1 },
+  { title: "Personalized Content", img: access2 },
+  { title: "Optimized for Conversions", img: access3 },
+  { title: "Predictive Analytics", img: access4 },
+  { title: "Automated Marketing", img: access5 },
+  { title: "Continuous Optimization", img: access6 },
 ];
 
 const workFlow = [
@@ -201,12 +201,15 @@ const Home = () => {
             data-aos="fade-up"
             className="flex flex-col gap-3 w-full justify-center items-center"
           >
-            <Link
+            <SLink
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
+              to="contact"
+              smooth={true}
+              spy={true}
+              duration={1000}
             >
               Start your own AI company
-            </Link>
+            </SLink>
             <JoinEntrepreneurs />
           </div>
           <div className="mt-5 text-secondary" data-aos="fade-up">
@@ -241,12 +244,15 @@ const Home = () => {
             data-aos="fade-up"
             className="flex flex-col gap-3 w-full justify-center items-center section-pt"
           >
-            <Link
+            <SLink
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
+              to="contact"
+              smooth={true}
+              spy={true}
+              duration={1000}
             >
               Start your own AI company
-            </Link>
+            </SLink>
             <JoinEntrepreneurs />
           </div>
         </section>
@@ -335,9 +341,10 @@ const Home = () => {
             {accesses.map((access) => (
               <div
                 key={access.title}
-                style={{backgroundImage: `url(${access.img})`}}
+                style={{ backgroundImage: `url(${access.img})` }}
                 className="relative bg-center group overflow-hidden hover:scale-105 bg-cover cursor-pointer transition-all duration-200 rounded-md p-5 text-xl sm:text-2xl flex justify-center items-center text-center w-full aspect-square"
-              ><div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 h-full w-full"></div>
+              >
+                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 h-full w-full"></div>
                 <p className="z-10 font-semibold">{access.title}</p>
               </div>
             ))}
@@ -348,12 +355,15 @@ const Home = () => {
               {"you've always dreamed of."}
             </h1>
             <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
-              <Link
+              <SLink
                 className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-                rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
+                to="contact"
+              smooth={true}
+              spy={true}
+              duration={1000}
               >
                 Start your own AI company
-              </Link>
+              </SLink>
               <JoinEntrepreneurs />
             </div>
           </div>
@@ -403,12 +413,15 @@ const Home = () => {
         </section>
         <div className="mt-20">
           <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
-            <Link
+            <SLink
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/"
+              to="contact"
+              smooth={true}
+              spy={true}
+              duration={1000}
             >
               Start your own AI company
-            </Link>
+            </SLink>
             <JoinEntrepreneurs />
           </div>
         </div>
@@ -420,8 +433,6 @@ const Home = () => {
         <section data-aos="fade-up" className="section-pt">
           <OurOffices />
         </section>
-        
-        <Footer />
       </div>
     </div>
   );

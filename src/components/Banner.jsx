@@ -5,7 +5,7 @@ import banner3 from "../assets/images/banner-3.jpg";
 import banner4 from "../assets/images/banner-4.jpg";
 import { gsap } from "gsap";
 import JoinEntrepreneurs from "./JoinEntrepreneurs";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 // import bgImg from '../assets/images/bg.png'
 
 const Banner = () => {
@@ -27,8 +27,9 @@ const Banner = () => {
   return (
     <div className="section-pt">
       <h1
-      data-aos="zoom-in"
-      className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center">
+        data-aos="zoom-in"
+        className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center"
+      >
         Create the AI Company <br />
         {"You've Always Imagined."}
       </h1>
@@ -37,8 +38,7 @@ const Banner = () => {
         DON’T STUCK AT BORING WEBSITES
       </p> */}
 
-      <div className="py-[5rem]"
-      data-aos="fade-up">
+      <div className="py-[5rem]" data-aos="fade-up">
         <div className="h-[40vh] sm:h-[50vh] w-full lg:w-[80%] relative mx-auto -z-10">
           <img
             src={banner3}
@@ -62,9 +62,20 @@ const Banner = () => {
           />
         </div>
       </div>
-      <div data-aos="fade-up" className="flex flex-col gap-3 w-full justify-center items-center">
-        <Link className="primary-btn font-medium w-[20rem] flex justify-center py-3" rel="noreferrer" target="_blank" to="https://boostmysites.com/aiexpert/">Start your own AI company</Link>
-        <JoinEntrepreneurs/>
+      <div
+        data-aos="fade-up"
+        className="flex flex-col gap-3 w-full justify-center items-center"
+      >
+        <Link
+          to="contact"
+          smooth={true}
+          spy={true}
+          duration={1000}
+          className="primary-btn font-medium w-[20rem] flex justify-center py-3"
+        >
+          Start your own AI company
+        </Link>
+        <JoinEntrepreneurs />
       </div>
     </div>
   );
