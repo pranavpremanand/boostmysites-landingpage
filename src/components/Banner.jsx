@@ -25,7 +25,7 @@ const Banner = () => {
     };
   }, []);
   return (
-    <div className="section-pt">
+    <div className="pt-[10rem]">
       <h1
         data-aos="zoom-in"
         className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center"
