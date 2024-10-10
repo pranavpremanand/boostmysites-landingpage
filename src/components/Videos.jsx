@@ -116,7 +116,7 @@ const Videos = () => {
       <div className="h-[70vh] md:h-[75vh] relative">
         <div
           onClick={() => handlePlay(video3Ref, "video3")}
-          className={`absolute top-0 left-0 w-full h-full ${
+          className={`absolute top-0 left-0 w-full h-full z-10 ${
             !isPlaying.video3 && "bg-black/20"
           }`}
         >
