@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Link as SLink } from "react-scroll";
 import logo from "../assets/logo/logo.png";
 
 const Footer = () => {
+  const { pathname } = useLocation();
   return (
-    <div className="flex wrapper flex-col gap-4 md:items-center justify-center py-[4rem] text-secondary mt-14 border-t border-gray-800/70">
-      <div className="w-full flex md:flex-row flex-col items-center justify-between gap-10">
+    <div className="flex backdrop-blur-sm flex-col gap-4 md:items-center justify-center py-[4rem] text-secondary mt-14 border-t border-gray-800/70">
+      <div className="wrapper w-full flex md:flex-row flex-col items-center justify-between gap-10">
         <img src={logo} alt="logo" className="h-[5rem] object-contain" />
         {/* <div className="flex flex-col gap-3">
           <h5 className="font-semibold">Courses</h5>
@@ -49,7 +50,7 @@ const Footer = () => {
         <div className="flex flex-col gap-3">
           <h5 className="font-semibold">BOOSTMYSITES</h5>
           <ul className="flex flex-col gap-1 text-sm text-center">
-            <li>
+            {!pathname.includes('contact/step')&&<li>
               <SLink
                 spy={true}
                 smooth={true}
@@ -60,15 +61,14 @@ const Footer = () => {
               >
                 Reviews
               </SLink>
-            </li>
-            <li>
-              <Link
-                className="link cursor-pointer"
-                to="/contact"
-              >
-                Contact Us
-              </Link>
-            </li>
+            </li>}
+            {!pathname.includes("contact/step") && (
+              <li>
+                <Link className="link cursor-pointer" to="/contact">
+                  Contact Us
+                </Link>
+              </li>
+            )}
             <li>
               <Link
                 className="link"
