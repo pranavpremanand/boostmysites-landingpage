@@ -32,11 +32,11 @@ const options = [
     title: "FAQ",
     path: "faq",
   },
-  {
-    id: 6,
-    title: "Contact",
-    path: "contact",
-  },
+  // {
+  //   id: 6,
+  //   title: "Contact",
+  //   path: "contact",
+  // },
 ];
 
 const Header = () => {
