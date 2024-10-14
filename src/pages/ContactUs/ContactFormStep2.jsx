@@ -153,7 +153,7 @@ const ContactFormStep2 = () => {
     }
   };
   return (
-    <div className="max-w-md mx-auto gap-5 text-secondary section-pt">
+    <div className="max-w-md mx-auto gap-5 text-secondary section-pt px-5">
       <form
         onSubmit={handleSubmit(onSubmit)}
         data-aos="fade-right"

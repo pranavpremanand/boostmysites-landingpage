@@ -119,7 +119,7 @@ const ContactFormStep1 = () => {
     navigate("/contact/step2");
   };
   return (
-    <div id="contact" className="max-w-md mx-auto gap-5 text-secondary pt-32">
+    <div id="contact" className="max-w-md mx-auto gap-5 text-secondary pt-32 px-5">
       <form
         ref={form}
         onSubmit={handleSubmit(nextStep)}
