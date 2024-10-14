@@ -74,16 +74,30 @@ const Header = () => {
     >
       <div className="w-full">
         <div className="wrapper flex justify-between items-center w-full">
-          <RLink
-            to="/"
-            className="cursor-pointer"
-          >
-            <img
-              src={logo}
-              alt=""
-              className="h-[4rem] md:h-[5rem] object-contain -mb-3"
-            />
-          </RLink>
+          {pathname.includes("contact") ? (
+            <RLink to="/" className="cursor-pointer">
+              <img
+                src={logo}
+                alt=""
+                className="h-[4rem] md:h-[5rem] object-contain -mb-3"
+              />
+            </RLink>
+          ) : (
+            <Link
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1000}
+              className="cursor-pointer"
+            >
+              <img
+                src={logo}
+                alt=""
+                className="h-[4rem] md:h-[5rem] object-contain -mb-3"
+              />
+            </Link>
+          )}
           {!pathname.includes("contact/step") && (
             <div className="text-sm hidden lg:flex items-center gap-7 w-full justify-end">
               {options.map((option) => (
@@ -108,10 +122,7 @@ const Header = () => {
               >
                 Login
               </RLink>
-              <RLink
-                to="/contact"
-                className="primary-btn"
-              >
+              <RLink to="/contact" className="primary-btn">
                 Join Now
               </RLink>
             </div>
