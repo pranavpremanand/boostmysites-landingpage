@@ -12,6 +12,7 @@ import {
   getCountryCallingCode,
 } from "libphonenumber-js";
 import { useNavigate } from "react-router-dom";
+import { BiCaretLeft } from "react-icons/bi";
 
 const ContactFormStep2 = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
@@ -154,14 +155,15 @@ const ContactFormStep2 = () => {
   };
   return (
     <div className="max-w-md mx-auto gap-5 text-secondary section-pt px-5">
+        <button data-aos="fade-right" onClick={() => navigate("/contact/step1")} className="flex items-center text-white mb-5"><BiCaretLeft className="text-4xl"/><span className="text-lg font-medium">Previous Step</span></button>
       <form
         onSubmit={handleSubmit(onSubmit)}
         data-aos="fade-right"
         data-aos-offset="-150"
       >
-        <h2 className="font-medium text-3xl mb-4 sm:mb-6 text-center sm:text-start">
+        {/* <h2 className="font-medium text-3xl mb-4 sm:mb-6 text-center sm:text-start">
           Step 2
-        </h2>
+        </h2> */}
         <div className="grid grid-cols-1 gap-4 mt-6">
           {/* Business Type Field */}
           <div className="grid grid-cols-1 relative">
