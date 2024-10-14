@@ -18,6 +18,14 @@ import access6 from "../assets/images/Continuous Optimization.jpg";
 import { lazy } from "react";
 import { BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import ReactPlayer from "react-player";
+import vid1 from "../assets/videos/vid1.mp4";
+import vid2 from "../assets/videos/vid2.mp4";
+import vid3 from "../assets/videos/vid3.mp4";
+import vid4 from "../assets/videos/vid4.mp4";
+import vid5 from "../assets/videos/vid5.mp4";
+import { BiPlay } from "react-icons/bi";
 const Banner = lazy(() => import("../components/Banner"));
 const FeaturedIn = lazy(() => import("../components/FeaturedIn"));
 const FAQ = lazy(() => import("../components/FAQ"));
@@ -26,7 +34,6 @@ const Reviews = lazy(() => import("../components/Reviews"));
 const Videos = lazy(() => import("../components/Videos"));
 const OurOffices = lazy(() => import("../components/OurOffices"));
 // const ContactForm = lazy(() => import("../components/ContactForm"));
-
 
 const items = [
   {
@@ -102,6 +109,7 @@ const workFlow = [
 ];
 
 const Home = () => {
+  const [introVidIsPlaying, setIntroVidIsPlaying] = useState(false);
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -140,7 +148,10 @@ const Home = () => {
   return (
     <div className="" id="home">
       <div className="wrapper">
-        <Banner />
+        <Banner
+          introVidIsPlaying={introVidIsPlaying}
+          setIntroVidIsPlaying={setIntroVidIsPlaying}
+        />
       </div>
       <div className="wrapper">
         <section
@@ -237,10 +248,14 @@ const Home = () => {
               data-aos="zoom-in"
               className="text-[2.7rem] leading-[3rem] md:text-5xl font-semibold mt-2"
             >
-              Wall Of Love <BsHeartFill className="text-red-500 inline ml-1"/>
+              Wall Of Love <BsHeartFill className="text-red-500 inline ml-1" />
             </h1>
-            <h1 data-aos="fade-up" className="text-2xl font-medium mt-[1rem] text-primary">
-            <span className="font-bold">Latest Reviews</span> from our Customers
+            <h1
+              data-aos="fade-up"
+              className="text-2xl font-medium mt-[1rem] text-primary"
+            >
+              <span className="font-bold">Latest Reviews</span> from our
+              Customers
             </h1>
           </div>
           <Reviews />
@@ -326,7 +341,10 @@ const Home = () => {
           {/* <h2 className="font-medium text-secondary my-14 text-3xl">
             with BootmySite.com
           </h2> */}
-          <Videos />
+          <Videos
+            introVidIsPlaying={introVidIsPlaying}
+            setIntroVidIsPlaying={setIntroVidIsPlaying}
+          />
         </section>
 
         <section

@@ -7,7 +7,7 @@ import vid4 from "../assets/videos/vid4.mp4";
 import vid5 from "../assets/videos/vid5.mp4";
 import { BiPlay } from "react-icons/bi";
 
-const Videos = () => {
+const Videos = ({setIntroVidIsPlaying}) => {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
   const video3Ref = useRef(null);
@@ -25,6 +25,7 @@ const Videos = () => {
 
   // Function to handle video play
   const handlePlay = (videoRef, videoKey) => {
+    setIntroVidIsPlaying(false)
     // Pause all other videos except the one clicked
     if (video1Ref.current && video1Ref.current !== videoRef.current) {
       video1Ref.current.seekTo(0); // Reset to the beginning
@@ -197,7 +198,8 @@ const Videos = () => {
         {"Boostmysites\n Founder & Chairman"} <br />
       </h1>
       <h1 className="text-white text-[2.7rem] md:text-6xl mb-3 md:mb-14 font-bold">MAHIN B S</h1>
-      <div className="h-[60vh] md:h-[70vh] relative w-full bg-black">
+      <div className="h-[60vh] md:h-[70vh] relative w-full">
+        <div className="absolute top-0 left-0 w-full h-full z-10"></div>
         <ReactPlayer
           className="h-full w-full z-0"
           url={vid5}
@@ -213,10 +215,10 @@ const Videos = () => {
                 preload: "auto",
                 controlsList: "nodownload noplaybackrate",
                 disablePictureInPicture: true,
+                playsinline: true,
               },
             },
           }}
-          
         />
       </div>
     </section>

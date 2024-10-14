@@ -1,79 +1,76 @@
-import { useEffect } from "react";
-import banner1 from "../assets/images/banner-1.jpg";
-import banner2 from "../assets/images/banner-2.jpg";
-import banner3 from "../assets/images/banner-3.jpg";
-import banner4 from "../assets/images/banner-4.jpg";
-import { gsap } from "gsap";
-import JoinEntrepreneurs from "./JoinEntrepreneurs";
-import { Link } from "react-scroll";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-// import bgImg from '../assets/images/bg.png'
+import ReactPlayer from "react-player";
+import introVid from "../assets/videos/intro.mp4";
+import JoinEntrepreneurs from "./JoinEntrepreneurs";
+import { BiPlay } from "react-icons/bi";
 
-const Banner = () => {
+const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
   const navigate = useNavigate();
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to(".banner-img", {
-      opacity: 1,
-      duration: 1,
-      stagger: 2,
-      ease: "power3.out",
-      repeat: -1,
-      yoyo: true,
-    });
 
-    return () => {
-      tl.kill();
-    };
-  }, []);
+  const handlePlayVideo = () => {
+    setIntroVidIsPlaying(!introVidIsPlaying);
+  };
+
   return (
     <div className="pt-[10rem]">
       <h1
         data-aos="zoom-in"
-        className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center"
+        className="text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center"
       >
-        Create the AI Company <br />
-        {"You've Always Imagined."}
+        Start your AI Company
       </h1>
-      {/* <p
-      data-aos="fade-up" className="text-center mt-4 tracking-widest text-lg font-light text-secondary">
-        DON’T STUCK AT BORING WEBSITES
-      </p> */}
 
-      <div className="py-[5rem]" data-aos="fade-up">
-        <div className="h-[40vh] sm:h-[50vh] w-full lg:w-[80%] relative mx-auto -z-10">
-          <img
-            src={banner3}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
-            alt=""
-            loading="lazy"
-          />
-          <img
-            src={banner1}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
-            alt=""
-            loading="lazy"
-          />
-          <img
-            src={banner2}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
-            alt=""
-            loading="lazy"
-          />
-          <img
-            src={banner4}
-            className="banner-img h-full w-full object-cover opacity-0 absolute top-0 left-0 rounded-lg"
-            alt=""
-            loading="lazy"
+      <div className="pt-[4rem] pb-[3rem]" data-aos="fade-up">
+        <div className="h-[50vh] sm:h-[60vh] w-full lg:w-[80%] relative mx-auto -z-10">
+          <div
+            onClick={() => handlePlayVideo()}
+            className={`absolute top-0 left-0 w-full h-full z-10 ${
+              !introVidIsPlaying && "bg-black/20"
+            }`}
+          >
+            {!introVidIsPlaying && (
+              <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <BiPlay className="text-[3rem] text-black" />
+              </button>
+            )}
+          </div>
+          <ReactPlayer
+            url={introVid}
+            playing={introVidIsPlaying} // Control playing via state
+            loop={false}
+            width="100%"
+            height="100%"
+            pip={false}
+            className="h-full w-full z-0"
+            config={{
+              file: {
+                attributes: {
+                  controlsList: "nodownload noplaybackrate",
+                  disablePictureInPicture: true,
+                },
+              },
+            }}
           />
         </div>
       </div>
+
+      {/* Play Button */}
+        {/* <div className="flex justify-center mb-5">
+          <button
+            onClick={handlePlayVideo}
+            className="primary-btn font-medium w-[20rem] flex justify-center py-3"
+          >
+            {introVidIsPlaying ? "Pause" : "Play Video"}
+          </button>
+        </div> */}
+
       <div
         data-aos="fade-up"
         className="flex flex-col gap-3 w-full justify-center items-center"
       >
         <button
-        onClick={() => navigate("/contact")}
+          onClick={() => navigate("/contact")}
           className="primary-btn font-medium w-[20rem] flex justify-center py-3"
         >
           Start your own AI company
