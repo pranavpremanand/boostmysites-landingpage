@@ -17,14 +17,15 @@ import { useNavigate } from "react-router-dom";
 const ContactFormStep1 = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
   const [phone, setPhone] = useState();
-  const [country, setCountry] = useState(
-    sessionStorage.getItem("isoCode") || "IN"
-  );
+  const [country, setCountry] = useState("");
   const [stateList, setStateList] = useState(State.getStatesOfCountry("IN"));
 
-  useEffect(()=>{
-    setStateList(State.getStatesOfCountry(country));
-  },[])
+  useEffect(() => {
+    const c = sessionStorage.getItem("isoCode") || "IN";
+    setCountry(c);
+    console.log(Country.getAllCountries());
+    setStateList(State.getStatesOfCountry(c) || []);
+  }, []);
 
   const [isSending, setIsSending] = useState(false);
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ const ContactFormStep1 = () => {
     setCountry(c);
     sessionStorage.setItem("isoCode", country.isoCode);
     setValue("country", country.name);
-    const initialState = State.getStatesOfCountry(c)[0];
+    const initialState = State.getStatesOfCountry(c)[0] || {};
     setValue("state", initialState.name);
     setStateList(states);
     console.log(states);
@@ -119,7 +120,10 @@ const ContactFormStep1 = () => {
     navigate("/contact/step2");
   };
   return (
-    <div id="contact" className="max-w-md mx-auto gap-5 text-secondary pt-32 px-5">
+    <div
+      id="contact"
+      className="max-w-md mx-auto gap-5 text-secondary pt-32 px-5"
+    >
       <form
         ref={form}
         onSubmit={handleSubmit(nextStep)}
@@ -214,41 +218,57 @@ const ContactFormStep1 = () => {
 
             <small className="error">{errors.phone?.message}</small>
           </div>
-          <div className="border border-[#2d2e32] rounded-[0.2rem] py-3 px-2 text-black bg-white/70">
-            <select
-              value={country}
-              onChange={(e) => {
-                setCities(e.target.value);
-              }}
-              name="country"
-              id=""
-              className="bg-transparent outline-none flex justify-between w-full"
-            >
-              {Country.getAllCountries().map((country) => (
-                <option
-                  className="hover:bg-primary outline-none"
-                  key={country.code}
-                  value={country.isoCode}
-                >
-                  {country.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="border border-[#2d2e32] rounded-[0.2rem] py-3 px-2 text-black bg-white/70">
-            <select name="state" id="" className="bg-transparent outline-none flex justify-between w-full">
-              {stateList.length > 0 &&
-                stateList.map((state) => (
+          <div className="grid grid-cols-1 relative">
+            <label htmlFor="" className="text-sm">
+              Country
+            </label>
+            <div className="border border-[#2d2e32] rounded-[0.2rem] py-3 px-2 text-black bg-white/70">
+              <select
+                value={country}
+                onChange={(e) => {
+                  setCities(e.target.value);
+                }}
+                name="country"
+                id=""
+                className="bg-transparent outline-none flex justify-between w-full"
+              >
+                {Country.getAllCountries().map((country) => (
                   <option
                     className="hover:bg-primary outline-none"
-                    key={state.name}
-                    value={state.name}
+                    key={country.code}
+                    value={country.isoCode}
                   >
-                    {state.name}
+                    {country.name}
                   </option>
                 ))}
-            </select>
+              </select>
+            </div>
           </div>
+          {stateList.length > 0 && stateList[0].name && (
+            <div className="grid grid-cols-1 relative">
+              <label htmlFor="" className="text-sm">
+                State
+              </label>
+              <div className="border border-[#2d2e32] rounded-[0.2rem] py-3 px-2 text-black bg-white/70">
+                <select
+                  name="state"
+                  id=""
+                  className="bg-transparent outline-none flex justify-between w-full"
+                >
+                  {stateList.length > 0 &&
+                    stateList.map((state) => (
+                      <option
+                        className="hover:bg-primary outline-none"
+                        key={state.name}
+                        value={state.name}
+                      >
+                        {state.name}
+                      </option>
+                    ))}
+                </select>
+              </div>
+            </div>
+          )}
           {/* <div className="grid grid-cols-1 relative">
             <label htmlFor="" className="text-sm">
               Subject
