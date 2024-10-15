@@ -18,13 +18,17 @@ const ContactFormStep1 = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
   const [phone, setPhone] = useState();
   const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
   const [stateList, setStateList] = useState(State.getStatesOfCountry("IN"));
 
   useEffect(() => {
     const c = sessionStorage.getItem("isoCode") || "IN";
     setCountry(c);
     console.log(Country.getAllCountries());
-    setStateList(State.getStatesOfCountry(c) || []);
+    const data = JSON.parse(sessionStorage.getItem("contactForm")) || {};
+    const states = State.getStatesOfCountry(c) || [];
+    setStateList(states);
+    setState(data.state || states[0]?.name);
   }, []);
 
   const [isSending, setIsSending] = useState(false);
@@ -53,62 +57,22 @@ const ContactFormStep1 = () => {
     },
   });
 
-  const handleFormSubmit = async (values) => {
-    try {
-      var emailBody = "Name: " + values.fullName + "\n\n";
-      emailBody += "Email: " + values.email + "\n\n";
-      emailBody += "Phone Number: " + values.phone + "\n\n";
-      emailBody += "Message:\n" + values.message;
-      // Construct the request payload
-      var payload = {
-        // to: "ceo@boostmysites.com",
-        to: "mpranavprem@gmail.com",
-        subject: values.subject,
-        body: emailBody,
-      };
-
-      setIsSending(true);
-
-      // setIsLoading(true);
-      await fetch("https://smtp-api-tawny.vercel.app/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      })
-        .then((response) => response.json())
-        .then(() => {
-          toast.success("Email sent successfully");
-          reset();
-        })
-        .catch((error) => {
-          console.error("Error sending email:", error);
-          toast.error(error.message);
-        });
-    } catch (err) {
-      console.log(err);
-      toast.error("Something went wrong");
-    } finally {
-      // setIsLoading(false);
-      setIsSending(false);
-    }
-  };
+  console.log({ defaultValues });
 
   const setCities = (c) => {
     const states = State.getStatesOfCountry(c);
-    const country = Country.getCountryByCode(c);
+    const cntry = Country.getCountryByCode(c);
     setCountry(c);
-    sessionStorage.setItem("isoCode", country.isoCode);
-    setValue("country", country.name);
+    sessionStorage.setItem("isoCode", cntry.isoCode);
+    setValue("country", cntry.name);
     const initialState = State.getStatesOfCountry(c)[0] || {};
     setValue("state", initialState.name);
+    setState(initialState.name);
     setStateList(states);
     console.log(states);
   };
 
   const nextStep = (values) => {
-    console.log(values);
     const data = {
       fullName: values.fullName,
       email: values.email,
@@ -254,6 +218,11 @@ const ContactFormStep1 = () => {
                   name="state"
                   id=""
                   className="bg-transparent outline-none flex justify-between w-full"
+                  value={state}
+                  onChange={(e) => {
+                    setState(e.target.value);
+                    setValue("state", e.target.value);
+                  }}
                 >
                   {stateList.length > 0 &&
                     stateList.map((state) => (

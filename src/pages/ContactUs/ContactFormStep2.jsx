@@ -117,6 +117,7 @@ const ContactFormStep2 = () => {
 
         // Construct the request payload
         var payload = {
+          // to: "mpranavprem@gmail.com",
           to: "ceo@boostmysites.com",
           subject: 'Lead Form Submission',
           body: emailBody,
