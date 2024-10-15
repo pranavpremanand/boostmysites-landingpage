@@ -1,37 +1,35 @@
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 // import { SpinnerContext } from "./SpinnerContext";
-import { CgSpinner } from "react-icons/cg";
-import { FaSpinner } from "react-icons/fa";
-import { PiSpinnerGapLight } from "react-icons/pi";
 import PhoneInput from "react-country-phone-input";
 import "react-country-phone-input/lib/style.css";
-import {
-  parsePhoneNumberFromString,
-  getCountryCallingCode,
-} from "libphonenumber-js";
-import { Country, State, City } from "country-state-city";
+import { Country, State } from "country-state-city";
 import { useNavigate } from "react-router-dom";
 
 const ContactFormStep1 = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
-  const [phone, setPhone] = useState();
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("IN");
   const [state, setState] = useState("");
   const [stateList, setStateList] = useState(State.getStatesOfCountry("IN"));
+
+  // Get all countries
+  const allCountries = Country.getAllCountries();
+
+  // Filter countries that have states
+  const countriesWithStates = allCountries.filter((country) => {
+    const states = State.getStatesOfCountry(country.isoCode);
+    return states.length > 0; // Include countries that have at least one state
+  });
 
   useEffect(() => {
     const c = sessionStorage.getItem("isoCode") || "IN";
     setCountry(c);
-    console.log(Country.getAllCountries());
     const data = JSON.parse(sessionStorage.getItem("contactForm")) || {};
     const states = State.getStatesOfCountry(c) || [];
     setStateList(states);
     setState(data.state || states[0]?.name);
   }, []);
 
-  const [isSending, setIsSending] = useState(false);
   const navigate = useNavigate();
   const form = useRef();
   const defaultValues =
@@ -43,6 +41,7 @@ const ContactFormStep1 = () => {
     trigger,
     setValue,
     getValues,
+    setError,
     formState: { errors },
   } = useForm({
     mode: "all",
@@ -50,14 +49,10 @@ const ContactFormStep1 = () => {
       fullName: defaultValues?.fullName || "",
       email: defaultValues?.email || "",
       phone: defaultValues?.phone || "",
-      // subject: "",
-      // message: "",
       country: defaultValues?.country || "India",
-      state: defaultValues?.state || "Kerala",
+      state: defaultValues?.state || "Andaman and Nicobar Islands",
     },
   });
-
-  console.log({ defaultValues });
 
   const setCities = (c) => {
     const states = State.getStatesOfCountry(c);
@@ -69,20 +64,31 @@ const ContactFormStep1 = () => {
     setValue("state", initialState.name);
     setState(initialState.name);
     setStateList(states);
-    console.log(states);
   };
 
   const nextStep = (values) => {
-    const data = {
-      fullName: values.fullName,
-      email: values.email,
-      phone: values.phone,
-      country: values.country,
-      state: values.state,
-    };
-    sessionStorage.setItem("contactForm", JSON.stringify(data));
-    navigate("/contact/step2");
+    const countriesList = Country.getAllCountries();
+    const phoneNumberNotExist = countriesList.find(
+      (country) => country.phonecode === values.phone
+    );
+    if (!phoneNumberNotExist) {
+      const data = {
+        fullName: values.fullName,
+        email: values.email,
+        phone: values.phone,
+        country: values.country,
+        state: values.state,
+      };
+      sessionStorage.setItem("contactForm", JSON.stringify(data));
+      navigate("/contact/step2");
+    } else {
+      setError("phone", {
+        type: "custom",
+        message: "Phone is required",
+      });
+    }
   };
+
   return (
     <div
       id="contact"
@@ -157,7 +163,6 @@ const ContactFormStep1 = () => {
               placeholder="Enter your phone number"
               value={getValues("phone")}
               onChange={(val) => {
-                setPhone(val);
                 setValue("phone", val || ""); // Update phone field with full phone number
                 trigger("phone"); // Trigger validation
               }}
@@ -196,7 +201,7 @@ const ContactFormStep1 = () => {
                 id=""
                 className="bg-transparent outline-none flex justify-between w-full"
               >
-                {Country.getAllCountries().map((country) => (
+                {countriesWithStates.map((country) => (
                   <option
                     className="hover:bg-primary outline-none"
                     key={country.code}

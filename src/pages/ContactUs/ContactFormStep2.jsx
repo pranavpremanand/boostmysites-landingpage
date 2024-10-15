@@ -1,25 +1,22 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 // import { SpinnerContext } from "./SpinnerContext";
-import { CgSpinner } from "react-icons/cg";
-import { FaSpinner } from "react-icons/fa";
 import { PiSpinnerGapLight } from "react-icons/pi";
-import PhoneInput from "react-country-phone-input";
 import "react-country-phone-input/lib/style.css";
-import {
-  parsePhoneNumberFromString,
-  getCountryCallingCode,
-} from "libphonenumber-js";
 import { useNavigate } from "react-router-dom";
 import { BiCaretLeft } from "react-icons/bi";
 
 const ContactFormStep2 = () => {
   // const { setIsLoading } = useContext(SpinnerContext);
-  const [phone, setPhone] = useState();
-  const [country, setCountry] = useState("IN"); // Track the selected country
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("contactForm")) {
+      navigate("/contact/step1");
+    }
+  }, []);
   const [isSending, setIsSending] = useState(false);
-  const form = useRef();
   const {
     register,
     handleSubmit,
@@ -28,7 +25,7 @@ const ContactFormStep2 = () => {
     watch,
     resetField,
     setError,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm({
     defaultValues: {
       businessType: "E-Commerce", // Default selected business type
@@ -37,10 +34,8 @@ const ContactFormStep2 = () => {
       investmentCapital: "Less than ₹4,00,000", // Default selected capital
       timeline: "1-3 months", // Default selected timeline
       primaryGoalText: "", // Track the custom input separately
-
     },
   });
-  const navigate = useNavigate();
   const watchPrimaryGoal = watch("primaryGoal");
   const watchPrimaryGoalText = watch("primaryGoalText");
 
@@ -60,27 +55,15 @@ const ContactFormStep2 = () => {
     resetField("primaryGoalText"); // Clear text input when a radio button is selected
   };
 
-//   const handleInputFocus = () => {
-//     resetField("primaryGoal"); // Clear radio buttons when text input is focused
-//   };
-
-//   const handleTextInputChange = (e) => {
-//     const value = e.target.value;
-//     setValue("primaryGoalText", value); // Set text input value as the custom goal
-//   };
-
-//   const handleRadioChange = (value) => {
-//     setValue("primaryGoal", value); // Set radio button value as the primary goal
-//     setValue("primaryGoalText", ""); // Clear text input when a radio button is selected
-//   };
-
   const onSubmit = async (values) => {
     if (!values.primaryGoal && !values.primaryGoalText) {
-        // Trigger an error if both the radio and input are empty
-        // alert("Please select or specify your primary goal.");
-        setError('primaryGoal', { type: 'manual', message: 'Please select or specify your primary goal.' });
-        return;
-      }
+      // Trigger an error if both the radio and input are empty
+      setError("primaryGoal", {
+        type: "manual",
+        message: "Please select or specify your primary goal.",
+      });
+      return;
+    }
     const contactForm =
       JSON.parse(sessionStorage.getItem("contactForm")) || null;
 
@@ -108,7 +91,8 @@ const ContactFormStep2 = () => {
         var emailBody = "Name: " + values.fullName + "\n\n";
         emailBody += "Email: " + values.email + "\n\n";
         emailBody += "Phone Number: " + values.phone + "\n\n";
-        emailBody += "Location: " + values.country+", "+values.state + "\n\n";
+        emailBody +=
+          "Location: " + values.country + ", " + values.state + "\n\n";
         emailBody += "Business Type: " + values.businessType + "\n\n";
         emailBody += "Expected Earnings: " + values.expectedEarnings + "\n\n";
         emailBody += "Primary Goal: " + values.primaryGoal + "\n\n";
@@ -117,9 +101,8 @@ const ContactFormStep2 = () => {
 
         // Construct the request payload
         var payload = {
-          // to: "mpranavprem@gmail.com",
           to: "ceo@boostmysites.com",
-          subject: 'Lead Form Submission',
+          subject: "Lead Form Submission",
           body: emailBody,
         };
         try {
@@ -156,7 +139,14 @@ const ContactFormStep2 = () => {
   };
   return (
     <div className="max-w-md mx-auto gap-5 text-secondary section-pt px-5">
-        <button data-aos="fade-right" onClick={() => navigate("/contact/step1")} className="flex items-center text-white mb-5"><BiCaretLeft className="text-4xl"/><span className="text-lg font-medium">Previous Step</span></button>
+      <button
+        data-aos="fade-right"
+        onClick={() => navigate("/contact/step1")}
+        className="flex items-center text-white mb-5"
+      >
+        <BiCaretLeft className="text-4xl" />
+        <span className="text-lg font-medium">Previous Step</span>
+      </button>
       <form
         onSubmit={handleSubmit(onSubmit)}
         data-aos="fade-right"
