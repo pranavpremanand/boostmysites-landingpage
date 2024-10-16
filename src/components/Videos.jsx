@@ -90,6 +90,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             width="100%"
             height="100%"
             pip={false}
+            playsinline={true}
             config={{
               file: {
                 attributes: {
@@ -121,6 +122,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             width="100%"
             height="100%"
             pip={false}
+            playsinline={true}
             config={{
               file: {
                 attributes: {
@@ -152,6 +154,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             width="100%"
             height="100%"
             pip={false}
+            playsinline={true}
             config={{
               file: {
                 attributes: {
@@ -183,6 +186,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             width="100%"
             height="100%"
             pip={false}
+            playsinline={true}
             config={{
               file: {
                 attributes: {
@@ -209,6 +213,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
           width="100%"
           height="100%"
           pip={false}
+          playsinline={true}
           config={{
             file: {
               attributes: {
