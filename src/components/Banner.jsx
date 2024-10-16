@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactPlayer from "react-player";
 import introVid from "../assets/videos/intro.mp4";
@@ -7,6 +7,7 @@ import { BiPlay } from "react-icons/bi";
 
 const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
   const navigate = useNavigate();
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   const handlePlayVideo = () => {
     setIntroVidIsPlaying(!introVidIsPlaying);
@@ -35,6 +36,12 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
               </button>
             )}
           </div>
+
+          {isVideoLoading && (
+            <div className="absolute top-0 left-0 w-full h-[50vh] sm:h-[60vh] flex justify-center items-center">
+              <span class="video-loader"></span>
+            </div>
+          )}
           <ReactPlayer
             url={introVid}
             playing={introVidIsPlaying} // Control playing via state
@@ -43,6 +50,7 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
             height="100%"
             pip={false}
             className="h-full w-full z-0"
+            onReady={() => setIsVideoLoading(false)}
             playsinline={true}
             config={{
               file: {
@@ -58,7 +66,7 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
       </div>
 
       {/* Play Button */}
-        {/* <div className="flex justify-center mb-5">
+      {/* <div className="flex justify-center mb-5">
           <button
             onClick={handlePlayVideo}
             className="primary-btn font-medium w-[20rem] flex justify-center py-3"

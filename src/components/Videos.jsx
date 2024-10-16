@@ -23,6 +23,15 @@ const Videos = ({setIntroVidIsPlaying}) => {
     video5: false,
   });
 
+  // videos loading state
+  const [isVideoLoading, setIsVideoLoading] = useState({
+    video1: true,
+    video2: true,
+    video3: true,
+    video4: true,
+    video5: true,
+  });
+
   // Function to handle video play
   const handlePlay = (videoRef, videoKey) => {
     setIntroVidIsPlaying(false)
@@ -82,6 +91,12 @@ const Videos = ({setIntroVidIsPlaying}) => {
               </button>
             )}
           </div>
+
+          {isVideoLoading.video1 && (
+            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+              <span class="video-loader"></span>
+            </div>
+          )}
           <ReactPlayer
             ref={video1Ref}
             className="h-full w-full z-0"
@@ -91,6 +106,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
+            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video1: false }))}
             config={{
               file: {
                 attributes: {
@@ -114,6 +130,12 @@ const Videos = ({setIntroVidIsPlaying}) => {
               </button>
             )}
           </div>
+
+          {isVideoLoading.video2 && (
+            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+              <span class="video-loader"></span>
+            </div>
+          )}
           <ReactPlayer
             ref={video2Ref}
             className="h-full w-full z-0"
@@ -123,6 +145,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
+            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video2: false }))}
             config={{
               file: {
                 attributes: {
@@ -146,6 +169,12 @@ const Videos = ({setIntroVidIsPlaying}) => {
               </button>
             )}
           </div>
+
+          {isVideoLoading.video3 && (
+            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+              <span class="video-loader"></span>
+            </div>
+          )}
           <ReactPlayer
             ref={video3Ref}
             className="h-full w-full z-0"
@@ -155,6 +184,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
+            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video3: false }))}
             config={{
               file: {
                 attributes: {
@@ -178,6 +208,11 @@ const Videos = ({setIntroVidIsPlaying}) => {
               </button>
             )}
           </div>
+          {isVideoLoading.video4 && (
+            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
+              <span class="video-loader"></span>
+            </div>
+          )}
           <ReactPlayer
             ref={video4Ref}
             className="h-full w-full z-0"
@@ -187,6 +222,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
+            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video4: false }))}
             config={{
               file: {
                 attributes: {
@@ -204,6 +240,11 @@ const Videos = ({setIntroVidIsPlaying}) => {
       <h1 className="text-white text-[2.7rem] md:text-6xl mb-3 md:mb-14 font-bold">MAHIN B S</h1>
       <div className="h-[60vh] md:h-[70vh] relative w-full">
         <div className="absolute top-0 left-0 w-full h-full z-10"></div>
+        {isVideoLoading.video5 && (
+            <div className="absolute top-0 left-0 w-full h-[60vh] md:h-[70vh] flex justify-center items-center">
+              <span class="autoplay-video-loader"></span>
+            </div>
+          )}
         <ReactPlayer
           className="h-full w-full z-0"
           url={vid5}
@@ -214,6 +255,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
           height="100%"
           pip={false}
           playsinline={true}
+          onReady={() => setIsVideoLoading((prev) => ({ ...prev, video5: false }))}
           config={{
             file: {
               attributes: {
