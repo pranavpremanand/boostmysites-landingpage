@@ -153,7 +153,7 @@ body {
   animation: 1s spin linear infinite;
 }
 .loader:after {
-  color: #0284c7;
+  color: #FFAB23;
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }

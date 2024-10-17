@@ -1,5 +1,19 @@
-// const SpinnerContextProvider = ({ children }) => {
-//   return <div>{children}</div>;
-// };
+import { createContext, useState } from "react";
 
-// export default SpinnerContextProvider;
+export const SpinnerContext = createContext(null)
+
+const SpinnerContextProvider = ({ children }) => {
+    const [spinner, setSpinner] = useState(false);
+    return (
+        <SpinnerContext.Provider
+            value={{
+                spinner,
+                setSpinner,
+            }}
+        >
+            {children}
+        </SpinnerContext.Provider>
+    );
+};
+
+export default SpinnerContextProvider;

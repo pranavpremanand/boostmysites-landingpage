@@ -2,9 +2,6 @@ import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 // import { SpinnerContext } from "./SpinnerContext";
-import img from "../assets/images/contact-us.jpg";
-import { CgSpinner } from "react-icons/cg";
-import { FaSpinner } from "react-icons/fa";
 import { PiSpinnerGapLight } from "react-icons/pi";
 import PhoneInput from 'react-country-phone-input'
 import 'react-country-phone-input/lib/style.css'

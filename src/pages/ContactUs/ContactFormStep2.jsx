@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 // import { SpinnerContext } from "./SpinnerContext";
@@ -6,9 +6,10 @@ import { PiSpinnerGapLight } from "react-icons/pi";
 import "react-country-phone-input/lib/style.css";
 import { useNavigate } from "react-router-dom";
 import { BiCaretLeft } from "react-icons/bi";
+import { SpinnerContext } from "../../components/SpinnerContext";
 
 const ContactFormStep2 = () => {
-  // const { setIsLoading } = useContext(SpinnerContext);
+  const { spinner, setSpinner } = useContext(SpinnerContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +17,6 @@ const ContactFormStep2 = () => {
       navigate("/contact/step1");
     }
   }, []);
-  const [isSending, setIsSending] = useState(false);
   const {
     register,
     handleSubmit,
@@ -44,17 +44,20 @@ const ContactFormStep2 = () => {
     resetField("primaryGoal"); // Clear radio buttons when text input is focused
   };
 
+  // Handle text input change
   const handleTextInputChange = (e) => {
     const value = e.target.value;
     setValue("primaryGoal", value); // Set text input value as the primary goal
   };
 
+  // Handle radio button change and clear text input when a radio button is selected
   const handleRadioChange = (value) => {
     setError("primaryGoal", null);
     setValue("primaryGoal", value); // Set radio button value as the primary goal
     resetField("primaryGoalText"); // Clear text input when a radio button is selected
   };
 
+  // Handle form submission
   const onSubmit = async (values) => {
     if (!values.primaryGoal && !values.primaryGoalText) {
       // Trigger an error if both the radio and input are empty
@@ -101,12 +104,13 @@ const ContactFormStep2 = () => {
 
         // Construct the request payload
         var payload = {
-          to: "ceo@boostmysites.com",
+          to: "mpranavprem@gmail.com",
+          // to: "ceo@boostmysites.com",
           subject: "Lead Form Submission",
           body: emailBody,
         };
         try {
-          setIsSending(true);
+          setSpinner(true);
 
           // setIsLoading(true);
           await fetch("https://smtp-api-tawny.vercel.app/send-email", {
@@ -132,7 +136,7 @@ const ContactFormStep2 = () => {
           toast.error("Something went wrong");
         } finally {
           // setIsLoading(false);
-          setIsSending(false);
+          setSpinner(false);
         }
       }
     }
@@ -398,15 +402,15 @@ const ContactFormStep2 = () => {
 
           {/* Submit Button */}
           <button
-            disabled={isSending}
+            disabled={spinner}
             type="submit"
             className={`${
-              isSending
+              spinner
                 ? "bg-primary/80 text-black py-2 px-4 rounded-md transition-all duration-300"
                 : "primary-btn"
             } flex justify-center mt-4`}
           >
-            {isSending ? (
+            {spinner ? (
               <div className="shadow-none">
                 <PiSpinnerGapLight className="rotate-animation text-2xl" />
               </div>
