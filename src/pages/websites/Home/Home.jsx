@@ -15,6 +15,9 @@ import { MdArrowOutward } from "react-icons/md";
 import teamImg1 from "../../../assets/home/team1.jpg.png";
 import teamImg2 from "../../../assets/home/team2.jpg.png";
 import teamImg3 from "../../../assets/home/team3.jpg.png";
+import teamImg4 from "../../../assets/home/team4.jpg.jpg";
+import teamImg5 from "../../../assets/home/team5.jpg.jpg";
+import teamImg6 from "../../../assets/home/team6.jpg.jpg";
 import teamVid from "../../../assets/videos/our-team-vid.mp4";
 import teamVidThumb from "../../../assets/videos/our-team-vid-thumbnail.png";
 import ReactPlayer from "react-player";
@@ -38,16 +41,16 @@ const Home = () => {
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>
         <div className="md:-translate-y-[15vh] wrapper grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 w-full z-30 pt-[10rem] md:pt-[17rem] lg:pt-[20rem] pb-[4rem]">
-          <div className="flex flex-col font-medium items-start">
+          <div className="flex flex-col items-start">
             <h2
               data-aos="fade-right"
-              className="text-[2.6rem] leading-tight sm:text-7xl xl:text-8xl"
+              className="text-[2.6rem] font-light leading-tight sm:text-7xl xl:text-[5.5rem]"
             >
               Welcome to
             </h2>
             <h2
               data-aos="fade-right"
-              className="text-[2.6rem] leading-tight sm:text-7xl xl:text-8xl text-primary1"
+              className="text-[2.6rem] font-extrabold leading-tight sm:text-7xl xl:text-[5.5rem] text-primary1"
             >
               BOOSTMYSITES.
             </h2>
@@ -59,10 +62,10 @@ const Home = () => {
             />
           </div>
           <div data-aos="zoom-in" className="flex flex-col max-w-[22rem]">
-            <h5 className="text-xl font-gabriela">
+            <h5 className="text-xl font-medium">
               We are an <br />
               <TypeIt options={{ loop: true, speed: 70, html: true }}>
-                <span className="text-primary1 font-gabriela">
+                <span className="text-primary1">
                   IT & Software Development Service
                 </span>
               </TypeIt>
@@ -78,19 +81,17 @@ const Home = () => {
               long-term success with cutting-edge solutions.
             </p>
           </div>
-          <div
-            className="lg:col-span-2 flex justify-between lg:justify-end lg:-translate-x-[15%] lg:-translate-y-5"
-          >
+          <div className="lg:col-span-2 flex justify-between lg:justify-end lg:-translate-x-[15%] lg:-translate-y-5">
             <div data-aos="fade-left" className="flex flex-col gap-6">
               <div className="flex flex-col gap-3 w-fit">
-                <h4 className="text-2xl">2k+</h4>
+                <h4 className="text-3xl font-bold">2k+</h4>
                 <p className="text-sm">
                   Projects completed <br />
                   <span className="text-primary1">successfully</span>
                 </p>
               </div>
               <div className="flex flex-col gap-3 w-fit">
-                <h4 className="text-2xl">500+</h4>
+                <h4 className="text-3xl font-bold">500+</h4>
                 <p className="text-sm">
                   Businesses Launched <br />
                   <span className="text-primary1">successfully</span>
@@ -98,7 +99,7 @@ const Home = () => {
               </div>
             </div>
             <img
-            data-aos="fade-down"
+              data-aos="fade-down"
               src={arrowIcon}
               alt="arrow"
               className="h-[6rem] object-contain mt-10 ml-5"
@@ -107,13 +108,19 @@ const Home = () => {
         </div>
       </div>
       <div className="relative z-10">
-        <StartYourBusiness styles={"text-tertiary text-stroke"} />
+        <StartYourBusiness
+          styles={"text-tertiary text-stroke"}
+          slides={[
+            "Expert IT development Solutions",
+            "Innovative AI Driven Development Solutions",
+          ]}
+        />
       </div>
       <section className="relative pt-[2rem] lg:pt-[7rem]">
         <div className="blurred-red-circle left-[-10rem] top-[-5rem] hidden md:block"></div>
         <div className="blurred-red-circle right-[-10rem] top-[35%] block"></div>
-        <div className="wrapper flex flex-col gap-[7rem]">
-          <div className="grid grid-cols lg:grid-cols-3 gap-5 lg:gap-10 mx-auto">
+        <div className="flex flex-col">
+          <div className="my-[5rem] wrapper grid grid-cols lg:grid-cols-3 gap-5 lg:gap-10 mx-auto">
             <div
               data-aos="fade-right"
               className="lg:min-h-[20rem] flex flex-col gap-10 justify-between"
@@ -125,14 +132,14 @@ const Home = () => {
               />
               <div className="px-[1rem] pt-[1rem] border-t border-white/20 hidden lg:grid grid-cols-[auto_3rem] items-end">
                 <div className="flex flex-col">
-                  <h6 className="text-2xl">100%</h6>
+                  <h6 className="text-2xl font-bold">100%</h6>
                   <p className="uppercase text-sm font-light">
                     Clients satisfaction
                   </p>
                 </div>
                 <img
                   src={arrowToBR}
-                  className="h-[2.5rem] object-contain"
+                  className="h-[2rem] object-contain"
                   alt="arrow"
                 />
               </div>
@@ -158,27 +165,27 @@ const Home = () => {
               </div>
               <div className="px-[1rem] pt-[1rem] border-t border-white/20 lg:hidden grid grid-cols-[auto_3rem] items-end">
                 <div className="flex flex-col">
-                  <h6 className="text-2xl">100%</h6>
+                  <h6 className="text-2xl font-bold">100%</h6>
                   <p className="uppercase text-sm font-light">
                     Clients satisfaction
                   </p>
                 </div>
                 <img
                   src={arrowToBR}
-                  className="h-[2.5rem] object-contain"
+                  className="h-[2rem] object-contain"
                   alt="arrow"
                 />
               </div>
               <div className="px-[1rem] pt-[1rem] border-t border-white/20 grid grid-cols-[auto_3rem] items-end">
                 <div className="flex flex-col">
-                  <h6 className="text-2xl">6700</h6>
+                  <h6 className="text-2xl font-bold">2000+</h6>
                   <p className="uppercase text-sm font-light">
                     Projects Completed
                   </p>
                 </div>
                 <img
                   src={arrowToBR}
-                  className="h-[2.5rem] object-contain"
+                  className="h-[2rem] object-contain"
                   alt="arrow"
                 />
               </div>
@@ -190,7 +197,14 @@ const Home = () => {
               className="hidden lg:block h-full object-cover z-10"
             />
           </div>
-          <div className="flex flex-col-reverse lg:grid grid-cols-3 lg:items-center gap-5 lg:gap-10 mx-auto z-10">
+          <StartYourBusiness
+            styles={"text-[#D9D9D9]"}
+            slides={[
+              "START YOUR BUSINESS WITH IAAS",
+              "START YOUR BUSINESS WITH IAAS",
+            ]}
+          />
+          <div className="my-[1rem] md:my-[5rem] wrapper flex flex-col-reverse lg:grid grid-cols-3 lg:items-center gap-5 lg:gap-10 mx-auto z-10">
             <div
               data-aos="fade-right"
               className="lg:min-h-[20rem] h-full flex flex-col gap-10 justify-between z-10"
@@ -281,17 +295,16 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <StartYourBusiness styles={"text-[#D9D9D9]"} />
 
-      {/* Meet our team */}
       <section className="py-[5rem] lg:py-[10rem]">
         <div className="wrapper">
           <div className="flex sm:flex-row flex-col justify-between gap-5 items-center">
             <div data-aos="fade-right" className="flex flex-col gap-1">
               <p className="text-sm text-primary1 uppercase">our team</p>
               <h4 className="text-[2.10rem] sm:text-4xl uppercase">
-                <span className="font-semibold">Meet our</span>{" "}
-                <span className="font-extralight">legends.</span>
+                <span className="font-semibold">
+                  Looking to partner with us?
+                </span>
               </h4>
             </div>
             <div data-aos="fade-left" className="flex items-center gap-2">
@@ -302,25 +315,81 @@ const Home = () => {
           </div>
           <div
             data-aos="fade-up"
-            className="py-[3rem] grid grid-cols-1 sm:grid-cols-3 gap-10"
+            className="py-[3rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
           >
-            <img
-              src={teamImg1}
-              className="max-h-[30rem] mx-auto rounded-lg"
-              alt="team"
-            />
-            <img
-              src={teamImg2}
-              className="max-h-[30rem] mx-auto rounded-lg"
-              alt="team"
-            />
-            <img
-              src={teamImg3}
-              className="max-h-[30rem] mx-auto rounded-lg"
-              alt="team"
-            />
+            <div className="max-h-[30rem] w-full relative">
+              <img
+                src={teamImg1}
+                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Mahin BS</h6>
+                <p className="text-sm text-primary1 w-fit">
+                  Founder & Chairman
+                </p>
+              </div>
+            </div>
+            <div className="max-h-[30rem] w-full relative">
+              <img
+                src={teamImg2}
+                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Reshab</h6>
+                <p className="text-sm text-primary1 w-fit">CEO</p>
+              </div>
+            </div>
+            <div className="max-h-[30rem] w-full relative">
+              <img
+                src={teamImg5}
+                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Supreeth Girish</h6>
+                <p className="text-sm text-primary1 w-fit">CTO</p>
+              </div>
+            </div>
+            <div className="max-h-[30rem] w-full relative">
+              <img
+                src={teamImg6}
+                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Darshan R Krishnan</h6>
+                <p className="text-sm text-primary1 w-fit">COO</p>
+              </div>
+            </div>
+            <div className="max-h-[30rem] w-full relative">
+              <img
+                src={teamImg4}
+                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Merlin Joy</h6>
+                <p className="text-sm text-primary1 w-fit">Associate Partner</p>
+              </div>
+            </div>
+            <div className="max-h-[30rem] w-full relative">
+              <img
+                src={teamImg3}
+                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Kavya R</h6>
+                <p className="text-sm text-primary1 w-fit">Associate Partner</p>
+              </div>
+            </div>
           </div>
-          <div data-aos="fade-up" className="bg-[#FFFFFF03] backdrop-blur-[500rem] grid gap-[1rem] sm:gap-0 pt-[1rem] sm:pt-0 sm:grid-cols-[35%_65%] md:grid-cols-[40%_60%] lg:grid-cols-[30%_70%] mt-[3rem]">
+          <div
+            data-aos="fade-up"
+            className="bg-[#FFFFFF03] backdrop-blur-[500rem] grid gap-[1rem] sm:gap-0 pt-[1rem] sm:pt-0 sm:grid-cols-[35%_65%] md:grid-cols-[40%_60%] lg:grid-cols-[30%_70%] mt-[3rem]"
+          >
             <div className="w-full flex justify-center items-center">
               <div
                 onClick={() => setIsPlaying(!isPlaying)}
@@ -331,7 +400,7 @@ const Home = () => {
                     <img src={teamVidThumb} className="rounded-lg" alt="" />
                   </div>
                 )}
-                <div className="w-[85%] mx-auto sm:w-full h-[60vh] md:h-[70] relative">
+                <div className="w-[90%] mx-auto sm:w-full h-[60vh] md:h-[70] relative">
                   {!isPlaying && (
                     <button
                       onClick={() => setIsPlaying(true)}
@@ -383,9 +452,7 @@ const Home = () => {
                       className="rounded-full w-[5rem] object-cover aspect-square"
                     />
                     <div className="flex flex-col gap-1">
-                      <h6 className="text-xl font-semibold font-raleway">
-                        Reshab
-                      </h6>
+                      <h6 className="text-xl font-semibold">Reshab</h6>
                       <p className="text-sm text-primary1">CEO</p>
                     </div>
                   </div>
@@ -399,7 +466,10 @@ const Home = () => {
       <section className="py-[5rem]">
         <FeaturedIn />
       </section>
-      <section data-aos="fade-up" className="wrapper flex flex-col items-center">
+      <section
+        data-aos="fade-up"
+        className="wrapper flex flex-col items-center pb-[5rem]"
+      >
         <h6 className="text-center text-sm px-5 py-2 border border-white/30 rounded-full w-fit mb-14">
           More than 500+ companies trusted us worldwide
         </h6>

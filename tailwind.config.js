@@ -31,7 +31,7 @@ module.exports = {
       addUtilities({
         ".text-stroke": {
           "text-shadow":
-            "1px 1px 0 #FFAB23, -1px -1px 0 #FFAB23, 1px -1px 0 #FFAB23, -1px 1px 0 #FFAB23",
+            "1px 1px 0 #F0801C, -1px -1px 0 #F0801C, 1px -1px 0 #F0801C, -1px 1px 0 #F0801C",
         },
       });
     },
