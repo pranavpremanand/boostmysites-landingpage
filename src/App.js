@@ -50,7 +50,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route
-              path="/"
+              path="/ai-expert"
               element={
                 <>
                   <LandingPageHeader />
@@ -77,7 +77,7 @@ function App() {
 
             {/* Website routes */}
             <Route
-              path="/home"
+              path="/"
               element={
                 <>
                   <Header />

@@ -44,7 +44,7 @@ const Home = () => {
           <div className="flex flex-col items-start">
             <h2
               data-aos="fade-right"
-              className="text-[2.6rem] font-light leading-tight sm:text-7xl xl:text-[5.5rem]"
+              className="text-[2.6rem] leading-tight sm:text-7xl xl:text-[5.5rem]"
             >
               Welcome to
             </h2>
@@ -234,8 +234,8 @@ const Home = () => {
                   We will handle the everything while you focus on growing your
                   business
                 </p>
-                <Link className="text-sm flex items-center gap-2 text-primary1 underline">
-                  More About Us <MdArrowOutward className="text-lg -mt-1" />
+                <Link to='/ai-expert' className="text-sm flex items-center gap-2 text-primary1 underline">
+                  Know More <MdArrowOutward className="text-lg -mt-1" />
                 </Link>
               </div>
             </div>

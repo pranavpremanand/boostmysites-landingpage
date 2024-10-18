@@ -161,7 +161,7 @@ const LeadForm = () => {
           <button
             type="button"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="bg-[#eef0ff] mt-2 outline-none text-start text-md flex justify-between pr-4"
+            className="bg-[#eef0ff] mt-2 outline-none text-start text-md flex justify-between pr-1 text-nowrap truncate line-clamp-1 text-ellipsis"
           >
             {getValues("service")} <RxCaretDown className="text-xl"/>
           </button>
