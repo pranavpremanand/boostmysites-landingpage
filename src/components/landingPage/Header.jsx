@@ -75,7 +75,7 @@ const Header = () => {
       <div className="w-full">
         <div className="wrapper flex justify-between items-center w-full">
           {pathname.includes("contact") ? (
-            <RLink to="/" className="cursor-pointer">
+            <RLink to="/ai-expert" className="cursor-pointer">
               <img
                 src={logo}
                 alt=""
@@ -88,7 +88,7 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={1000}
+              duration={500}
               className="cursor-pointer"
             >
               <img
@@ -122,7 +122,7 @@ const Header = () => {
               >
                 Login
               </RLink>
-              <RLink to="/contact" className="primary-btn">
+              <RLink to="/ai-expert/contact" className="primary-btn">
                 Join Now
               </RLink>
             </div>

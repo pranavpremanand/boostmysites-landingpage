@@ -80,7 +80,7 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
         className="flex flex-col gap-3 w-full justify-center items-center"
       >
         <button
-          onClick={() => navigate("/contact")}
+          onClick={() => navigate("/ai-expert/contact")}
           className="primary-btn font-medium w-[20rem] flex justify-center py-3"
         >
           Start your own AI company

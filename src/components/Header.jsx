@@ -93,7 +93,7 @@ const Header = () => {
                 </Link>
               ))}
             </div>
-            <RLink to="/contact" className="hidden lg:flex primary-btn1">
+            <RLink className="hidden lg:flex primary-btn1">
               Let's Connect
             </RLink>
 

@@ -64,7 +64,7 @@ const Footer = () => {
             </li>}
             {!pathname.includes("contact/step") && (
               <li>
-                <Link className="link cursor-pointer" to="/contact">
+                <Link className="link cursor-pointer" to="/">
                   Contact Us
                 </Link>
               </li>

@@ -79,7 +79,7 @@ const ContactFormStep1 = () => {
         state: values.state,
       };
       sessionStorage.setItem("contactForm", JSON.stringify(data));
-      navigate("/contact/step2");
+      navigate("/ai-expert/contact/step2");
     } else {
       setError("phone", {
         type: "custom",

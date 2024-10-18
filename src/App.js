@@ -60,7 +60,7 @@ function App() {
               }
             />
             <Route
-              path="/contact/*"
+              path="/ai-expert/contact/*"
               element={
                 <>
                   <LandingPageHeader />

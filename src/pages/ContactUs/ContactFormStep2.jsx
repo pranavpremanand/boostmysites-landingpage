@@ -13,7 +13,7 @@ const ContactFormStep2 = () => {
 
   useEffect(() => {
     if (!sessionStorage.getItem("contactForm")) {
-      navigate("/contact/step1");
+      navigate("/ai-expert/contact/step1");
     }
   }, []);
   const {
@@ -71,7 +71,7 @@ const ContactFormStep2 = () => {
 
     if (!contactForm) {
       toast.error("Please fill the contact form first");
-      navigate("/contact/step1");
+      navigate("/ai-expert/contact/step1");
       return;
     } else {
       values.fullName = contactForm.fullName;
@@ -87,7 +87,7 @@ const ContactFormStep2 = () => {
         !values.email
       ) {
         toast.error("Please fill the contact form first");
-        navigate("/contact/step1");
+        navigate("/ai-expert/contact/step1");
         return;
       } else {
         var emailBody = "Name: " + values.fullName + "\n\n";
@@ -139,7 +139,7 @@ const ContactFormStep2 = () => {
     <div className="max-w-md mx-auto gap-5 text-secondary section-pt px-5">
       <button
         data-aos="fade-right"
-        onClick={() => navigate("/contact/step1")}
+        onClick={() => navigate("/ai-expert/contact/step1")}
         className="flex items-center text-white mb-5"
       >
         <BiCaretLeft className="text-4xl" />

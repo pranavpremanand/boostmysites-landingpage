@@ -209,7 +209,7 @@ const LandingPage = () => {
           >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/contact"
+              to="/ai-expert/contact"
             >
               Start your own AI company
             </Link>
@@ -258,7 +258,7 @@ const LandingPage = () => {
           >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/contact"
+              to="/ai-expert/contact"
             >
               Start your own AI company
             </Link>
@@ -369,7 +369,7 @@ const LandingPage = () => {
             <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
               <Link
                 className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-                to="/contact"
+                to="/ai-expert/contact"
               >
                 Start your own AI company
               </Link>
@@ -424,7 +424,7 @@ const LandingPage = () => {
           <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/contact"
+              to="/ai-expert/contact/step1"
             >
               Start your own AI company
             </Link>
