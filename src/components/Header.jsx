@@ -102,7 +102,7 @@ const Header = () => {
               onClick={toggleDrawer}
             >
               <Hamburger
-                color="#FFAB23"
+                color="#F0801C"
                 size="23"
                 toggled={isOpen}
                 rounded
