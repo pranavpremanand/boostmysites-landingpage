@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabriela&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,24 +8,49 @@
     @apply max-w-7xl mx-auto px-4 md:px-8;
   }
   .primary-btn {
-    @apply font-medium cursor-pointer bg-gradient-to-r from-primary to-[#D5AA12] hover:-translate-y-1 shadow-large shadow-transparent hover:shadow-primary/[35%] text-tertiary border border-primary py-2 px-4 rounded-md transition-all duration-300;
+    @apply text-sm cursor-pointer bg-gradient-to-r from-primary to-[#D5AA12] hover:-translate-y-1 shadow-large shadow-transparent hover:shadow-primary/[35%] text-black border border-primary py-2 px-4 rounded-md transition-all duration-300;
+  }
+  .primary-btn1 {
+    @apply text-sm cursor-pointer bg-primary1 hover:-translate-y-1 shadow-large shadow-transparent hover:shadow-primary1/[35%] text-secondary border border-primary1 py-2 px-4 rounded-md transition-all duration-300;
   }
   .secondary-btn {
-    @apply font-medium cursor-pointer bg-transparent hover:bg-primary hover:text-tertiary text-primary border border-primary py-2 px-4 rounded-md transition-all duration-300;
+    @apply text-sm cursor-pointer bg-transparent hover:bg-primary hover:text-black text-primary border border-primary py-2 px-4 rounded-md transition-all duration-300;
   }
   .section-pt {
     @apply pt-28;
   }
   .link {
-    @apply text-secondary hover:text-primary transition-all duration-300;
+    @apply hover:text-primary transition-all duration-300;
   }
   .link-active {
     @apply text-primary;
   }
+  .blurred-red-circle {
+    @apply blur-[120px] bg-gradient-to-r from-[#450a0a] to-[#F0801C_90%] absolute h-[20rem] w-[20rem] rounded-full;
+  }
+  .sm-blurred-red-circle {
+    @apply blur-[25px] bg-gradient-to-r from-[#450a0a] to-[#F0801C_90%] absolute h-[5rem] w-[5rem] rounded-full;
+  }
 }
+
+.video-cover video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+/* @media (max-width: 768px) {
+  .video-cover video {
+    width: 80%;
+    object-fit: contain;
+  }
+} */
 
 :root {
   background-color: #000000;
+  /* background-color: #0f0f0f; */
   background-attachment: fixed;
   /* background-position: center;
   background-size: 100% 100%; */
@@ -33,7 +58,7 @@
   position: relative;
 }
 
-body::before {
+.landing-page::before {
   content: "";
   position: fixed;
   top: 0;
@@ -73,6 +98,7 @@ html,
 body {
   /* background: #000000; */
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -81,7 +107,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffab23;
+  background-color: #f0801c;
   border-radius: 8px;
 }
 
@@ -153,7 +179,7 @@ body {
   animation: 1s spin linear infinite;
 }
 .loader:after {
-  color: #FFAB23;
+  color: #ffab23;
   transform: rotateY(70deg);
   animation-delay: 0.4s;
 }
@@ -238,21 +264,19 @@ body {
   background: transparent !important;
 }
 
-.react-tel-input .form-control{
+.react-tel-input .form-control {
   font-size: 1rem !important;
 }
-.react-tel-input .form-control::placeholder{
+.react-tel-input .form-control::placeholder {
   color: #00000087 !important;
 }
 
 .video-loader {
   width: 15.5rem;
   height: 100%;
-  background:
-      linear-gradient(0.25turn, transparent, #FFF, transparent),
-      linear-gradient(#DDD, #DDD),
-      linear-gradient(#DDD, #DDD),
-      linear-gradient(#DDD, #DDD);
+  background: linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
+    linear-gradient(#ddd, #ddd);
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: -215px 0, 0 0, 15px 150px, 15px 180px;
@@ -260,19 +284,17 @@ body {
 }
 
 @keyframes loading {
-to {
-  background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
-}
+  to {
+    background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  }
 }
 
 .autoplay-video-loader {
   width: 18rem;
   height: 100%;
-  background:
-      linear-gradient(0.25turn, transparent, #FFF, transparent),
-      linear-gradient(#DDD, #DDD),
-      linear-gradient(#DDD, #DDD),
-      linear-gradient(#DDD, #DDD);
+  background: linear-gradient(0.25turn, transparent, #fff, transparent),
+    linear-gradient(#ddd, #ddd), linear-gradient(#ddd, #ddd),
+    linear-gradient(#ddd, #ddd);
   background-color: #fff;
   background-repeat: no-repeat;
   background-position: -215px 0, 0 0, 15px 150px, 15px 180px;
@@ -280,7 +302,13 @@ to {
 }
 
 @keyframes loading {
-to {
-  background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  to {
+    background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  }
 }
+
+/* type animation font size */
+.index-module_type__E-SaG {
+  font-size: 1.25rem /* 20px */;
+  line-height: 1.75rem /* 28px */;
 }

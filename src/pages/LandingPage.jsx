@@ -19,7 +19,7 @@ import { lazy } from "react";
 import { BsHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-const Banner = lazy(() => import("../components/Banner"));
+const Banner = lazy(() => import("../components/landingPage/Banner"));
 const FeaturedIn = lazy(() => import("../components/FeaturedIn"));
 const FAQ = lazy(() => import("../components/FAQ"));
 const JoinEntrepreneurs = lazy(() => import("../components/JoinEntrepreneurs"));
@@ -101,7 +101,7 @@ const workFlow = [
   },
 ];
 
-const Home = () => {
+const LandingPage = () => {
   const [introVidIsPlaying, setIntroVidIsPlaying] = useState(false);
   const [sliderRef] = useKeenSlider(
     {
@@ -139,7 +139,7 @@ const Home = () => {
     ]
   );
   return (
-    <div className="" id="home">
+    <div className="landing-page" id="home">
       <div className="wrapper">
         <Banner
           introVidIsPlaying={introVidIsPlaying}
@@ -444,4 +444,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LandingPage;

@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-// import { SpinnerContext } from "./SpinnerContext";
 import { PiSpinnerGapLight } from "react-icons/pi";
 import "react-country-phone-input/lib/style.css";
 import { useNavigate } from "react-router-dom";
@@ -111,7 +110,6 @@ const ContactFormStep2 = () => {
         try {
           setSpinner(true);
 
-          // setIsLoading(true);
           await fetch("https://smtp-api-tawny.vercel.app/send-email", {
             method: "POST",
             headers: {
@@ -127,14 +125,11 @@ const ContactFormStep2 = () => {
               navigate("/");
             })
             .catch((error) => {
-              console.error("Error sending email:", error);
               toast.error(error.message);
             });
         } catch (err) {
-          console.log(err);
           toast.error("Something went wrong");
         } finally {
-          // setIsLoading(false);
           setSpinner(false);
         }
       }

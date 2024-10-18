@@ -9,34 +9,29 @@ import { Link as RLink, useLocation } from "react-router-dom";
 const options = [
   {
     id: 1,
-    title: "Features",
-    path: "features",
+    title: "Demos",
+    path: "#",
   },
   {
     id: 2,
-    title: "Client Reviews",
-    path: "reviews",
+    title: "Pages",
+    path: "#",
   },
   {
     id: 3,
-    title: "Success Stories",
-    path: "success-stories",
+    title: "Portfolio",
+    path: "#",
   },
   {
     id: 4,
-    title: "Courses",
-    path: "courses",
+    title: "Blogs",
+    path: "#",
   },
   {
     id: 5,
-    title: "FAQ",
-    path: "faq",
+    title: "Contact Us",
+    path: "#",
   },
-  // {
-  //   id: 6,
-  //   title: "Contact",
-  //   path: "contact",
-  // },
 ];
 
 const Header = () => {
@@ -67,117 +62,113 @@ const Header = () => {
     };
   }, []);
   return (
-    <div
-      className={`fixed z-50 py-3 flex justify-center w-full top-0 left-0 ${
-        isScrolled ? "backdrop-blur-md bg-quaternary/30" : "bg-quaternary"
-      }`}
-    >
-      <div className="w-full">
-        <div className="wrapper flex justify-between items-center w-full">
-          {pathname.includes("contact") ? (
-            <RLink to="/" className="cursor-pointer">
-              <img
-                src={logo}
-                alt=""
-                className="h-[4rem] md:h-[5rem] object-contain -mb-3"
-              />
-            </RLink>
-          ) : (
-            <Link
-              to="home"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={1000}
-              className="cursor-pointer"
-            >
-              <img
-                src={logo}
-                alt=""
-                className="h-[4rem] md:h-[5rem] object-contain -mb-3"
-              />
-            </Link>
-          )}
-          {!pathname.includes("contact/step") && (
-            <div className="text-sm hidden lg:flex items-center gap-7 w-full justify-end">
-              {options.map((option) => (
-                <Link
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={1000}
-                  to={option.path}
-                  key={option.id}
-                  className="text-secondary link cursor-pointer"
-                  activeClass="link-active"
-                >
-                  {option.title}
-                </Link>
-              ))}
-              <RLink
-                rel="noreferrer"
-                target="_blank"
-                to="https://course.boostmysites.com/wp-login.php?redirect_to=courses/flutter-app-development-program"
-                className="text-primary"
+    <>
+      <div
+        className={`fixed border-b border-white/5 z-50 py-3 flex justify-center w-full top-0 left-0 ${
+          isScrolled ? "backdrop-blur-md bg-tertiary/30" : "bg-tertiary"
+        }`}
+      >
+        <div className="w-full">
+          <div className="wrapper flex justify-between items-center w-full">
+            {pathname.includes("contact") ? (
+              <RLink to="/" className="cursor-pointer">
+                <img
+                  src={logo}
+                  alt=""
+                  className="h-[4rem] md:h-[5rem] object-contain -mb-3"
+                />
+              </RLink>
+            ) : (
+              <Link
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={1000}
+                className="cursor-pointer"
               >
-                Login
-              </RLink>
-              <RLink to="/contact" className="primary-btn">
-                Join Now
-              </RLink>
-            </div>
-          )}
-
-          {!pathname.includes("contact/step") && (
-            <Drawer
-              open={isOpen}
-              onClose={toggleDrawer}
-              direction="right"
-              className="py-4 px-10 z-10 bg-tertiary text-secondary"
-            >
-              <div className="mb-6 flex items-center justify-end pr-[.7rem] py-[.4rem]">
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="text-primary text-[2.2rem]"
-                >
-                  <IoMdClose />
-                </button>
-              </div>
-              <div className="flex flex-col gap-4">
-                {options.map(({ title, path, id }) => (
+                <img
+                  src={logo}
+                  alt=""
+                  className="h-[4rem] md:h-[5rem] object-contain -mb-3"
+                />
+              </Link>
+            )}
+            {!pathname.includes("contact/step") && (
+              <div className="text-sm uppercase hidden lg:flex items-center gap-7">
+                {options.map((option) => (
                   <Link
-                    onClick={() => setIsOpen(false)}
-                    key={id}
-                    className="text-2xl font-medium transition-colors duration-300 link"
-                    to={path}
                     spy={true}
                     smooth={true}
                     offset={-70}
                     duration={1000}
+                    to={option.path}
+                    key={option.id}
+                    className="text-secondary link cursor-pointer"
+                    activeClass="link-active"
                   >
-                    {title}
+                    {option.title}
                   </Link>
                 ))}
               </div>
-            </Drawer>
-          )}
-          {!pathname.includes("contact/step") && (
-            <div
-              className="block lg:hidden justify-self-end"
-              onClick={toggleDrawer}
-            >
-              <Hamburger
-                color="#FFAB23"
-                size="23"
-                toggled={isOpen}
-                rounded
-                toggle={setIsOpen}
-              />
-            </div>
-          )}
+            )}
+            {!pathname.includes("contact/step") && (
+              <RLink to="/contact" className="hidden lg:flex primary-btn1">
+                Let's Connect
+              </RLink>
+            )}
+
+            {!pathname.includes("contact/step") && (
+              <div
+                className="block lg:hidden justify-self-end"
+                onClick={toggleDrawer}
+              >
+                <Hamburger
+                  color="#FFAB23"
+                  size="23"
+                  toggled={isOpen}
+                  rounded
+                  toggle={setIsOpen}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      {!pathname.includes("contact/step") && (
+        <Drawer
+          open={isOpen}
+          onClose={toggleDrawer}
+          direction="right"
+          className="py-4 px-10 z-10 bg-black text-secondary"
+        >
+          <div className="mb-6 flex items-center justify-end pr-[.7rem] py-[.4rem]">
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-primary text-[2.2rem]"
+            >
+              <IoMdClose />
+            </button>
+          </div>
+          <div className="flex flex-col gap-4">
+            {options.map(({ title, path, id }) => (
+              <Link
+                onClick={() => setIsOpen(false)}
+                key={id}
+                className="text-2xl font-medium transition-colors duration-300 link"
+                to={path}
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={1000}
+              >
+                {title}
+              </Link>
+            ))}
+          </div>
+        </Drawer>
+      )}
+    </>
   );
 };
 
