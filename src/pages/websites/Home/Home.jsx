@@ -30,14 +30,14 @@ const Home = () => {
   return (
     <div className="bg-tertiary text-white">
       <div
-        className="bg-cover min-h-[130vh] flex flex-col justify-center w-full relative"
+        className="bg-cover bg-tertiary md:min-h-[130vh] flex flex-col justify-center w-full relative"
         style={{
           backgroundImage: `url(${bannerImg})`,
           backgroundPosition: "40% 55%",
         }}
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black/60"></div>
-        <div className="-translate-y-[15vh] wrapper grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 w-full z-30 pt-[18rem] lg:pt-[20rem] pb-[4rem]">
+        <div className="md:-translate-y-[15vh] wrapper grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 w-full z-30 pt-[10rem] md:pt-[17rem] lg:pt-[20rem] pb-[4rem]">
           <div className="flex flex-col font-medium items-start">
             <h2
               data-aos="fade-right"
