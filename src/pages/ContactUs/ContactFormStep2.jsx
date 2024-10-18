@@ -136,7 +136,7 @@ const ContactFormStep2 = () => {
     }
   };
   return (
-    <div className="max-w-md mx-auto gap-5 text-secondary section-pt px-5">
+    <div className="landing-page max-w-md mx-auto gap-5 text-secondary section-pt px-5">
       <button
         data-aos="fade-right"
         onClick={() => navigate("/ai-expert/contact/step1")}

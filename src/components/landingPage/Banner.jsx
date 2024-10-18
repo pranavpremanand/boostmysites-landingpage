@@ -26,9 +26,9 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
         <div className="h-[50vh] sm:h-[60vh] w-full lg:w-[80%] relative mx-auto -z-10">
           <div
             onClick={() => handlePlayVideo()}
-            className={`absolute top-0 left-0 w-full h-full z-10 ${
-              !introVidIsPlaying && "bg-black/20"
-            }`}
+            className={`absolute top-0 left-0 w-full h-full z-10
+               ${!introVidIsPlaying && "bg-black/20"}
+              `}
           >
             {!introVidIsPlaying && (
               <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

@@ -91,7 +91,7 @@ const ContactFormStep1 = () => {
   return (
     <div
       id="contact"
-      className="max-w-md mx-auto gap-5 text-secondary pt-32 px-5"
+      className="landing-page max-w-md mx-auto gap-5 text-secondary pt-32 px-5"
     >
       <form
         ref={form}
