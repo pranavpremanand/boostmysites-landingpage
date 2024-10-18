@@ -110,8 +110,8 @@ const Home = () => {
         <StartYourBusiness styles={"text-tertiary text-stroke"} />
       </div>
       <section className="relative pt-[2rem] lg:pt-[7rem]">
-        <div className="blurred-red-circle left-[-10rem] top-[-5rem]"></div>
-        <div className="blurred-red-circle right-[-10rem] top-[35%]"></div>
+        <div className="blurred-red-circle left-[-10rem] top-[-5rem] hidden md:block"></div>
+        <div className="blurred-red-circle right-[-10rem] top-[35%] block"></div>
         <div className="wrapper flex flex-col gap-[7rem]">
           <div className="grid grid-cols lg:grid-cols-3 gap-5 lg:gap-10 mx-auto">
             <div
