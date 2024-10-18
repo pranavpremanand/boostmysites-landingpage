@@ -4,6 +4,7 @@ import img2 from "../assets/images/featuredin-2.png";
 import img3 from "../assets/images/featuredin-3.png";
 import img4 from "../assets/images/featuredin-4.png";
 import img5 from "../assets/images/featuredin-5.png";
+import img6 from "../assets/images/featuredin-6.png";
 
 const animation = { duration: 10000, easing: (t) => t };
 
@@ -36,10 +37,10 @@ const FeaturedIn = () => {
   });
   return (
     <div className="text-white flex flex-col gap-5 py-5">
-      <h3 className="text-3xl font-medium text-center">Featured In</h3>
+      <h3 className="text-3xl font-medium text-center uppercase">Featured In</h3>
       <div className="bg-secondary">
         <div ref={sliderRef} className="keen-slider">
-          {[img1, img2, img3, img4, img5].map((img, index) => (
+          {[img1, img2, img3, img4, img5, img6].map((img, index) => (
             <div key={index} className="keen-slider__slide flex justify-center">
               <img
                 src={img}

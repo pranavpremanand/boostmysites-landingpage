@@ -5,8 +5,9 @@ module.exports = {
     extend: {
       colors: {
         primary: "#FFAB23",
+        primary1: "#F0801C",
         secondary: "#FFFFFF",
-        tertiary: "#000000",
+        tertiary: "#0F0F0F",
         quaternary: "#050E15",
       },
       boxShadow: {
@@ -15,7 +16,24 @@ module.exports = {
       backgroundImage: {
         default: 'url("./src/assets/images/bg.png")',
       },
+      textStroke: {
+        DEFAULT: "1px",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        raleway: ["Raleway", "sans-serif"],
+        gabriela: ["Gabriela", "serif"],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".text-stroke": {
+          "text-shadow":
+            "1px 1px 0 #FFAB23, -1px -1px 0 #FFAB23, 1px -1px 0 #FFAB23, -1px 1px 0 #FFAB23",
+        },
+      });
+    },
+  ],
 };

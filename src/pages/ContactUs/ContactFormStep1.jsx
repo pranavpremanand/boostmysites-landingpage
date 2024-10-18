@@ -37,7 +37,6 @@ const ContactFormStep1 = () => {
   const {
     register,
     handleSubmit,
-    reset,
     trigger,
     setValue,
     getValues,

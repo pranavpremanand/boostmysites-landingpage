@@ -57,16 +57,16 @@
 //   const [leftReview, centerReview, rightReview] = getThreeReviews();
 
 //   return (
-//     <div data-aos="fade-up" className="h-[25rem] md:h-[18rem] flex relative mt-20 text-tertiary md:w-[80%] mx-auto">
+//     <div data-aos="fade-up" className="h-[25rem] md:h-[18rem] flex relative mt-20 text-black md:w-[80%] mx-auto">
 //       <div className="h-full bg-secondary/90 rounded-lg p-3 md:p-8 flex flex-col gap-2 items-center justify-center">
 //         <img
 //           src={profileImg}
 //           className="h-[5rem] w-[5rem] object-cover rounded-full"
 //           alt=""
 //         />
-//         <h4 className="text-2xl font-medium text-tertiary">{leftReview.name}</h4>
+//         <h4 className="text-2xl font-medium text-black">{leftReview.name}</h4>
 //         <p className="font-light">{leftReview.designation}</p>
-//         <p className="text-tertiary/70 text-sm whitespace-pre-line">
+//         <p className="text-black/70 text-sm whitespace-pre-line">
 //           {leftReview.thought}
 //         </p>
 //       </div>
@@ -76,11 +76,11 @@
 //           className="h-[5rem] w-[5rem] object-cover rounded-full"
 //           alt=""
 //         />
-//         <h4 className="text-2xl font-medium text-tertiary">
+//         <h4 className="text-2xl font-medium text-black">
 //           {centerReview.name}
 //         </h4>
 //         <p>{centerReview.designation}</p>
-//         <p className="text-tertiary/70 text-sm whitespace-pre-line">
+//         <p className="text-black/70 text-sm whitespace-pre-line">
 //           {centerReview.thought}
 //         </p>
 //       </div>
@@ -90,11 +90,11 @@
 //           className="h-[5rem] w-[5rem] object-cover rounded-full"
 //           alt=""
 //         />
-//         <h4 className="text-2xl font-medium text-tertiary">
+//         <h4 className="text-2xl font-medium text-black">
 //           {rightReview.name}
 //         </h4>
 //         <p className="font-light">{rightReview.designation}</p>
-//         <p className="text-tertiary/70 text-sm whitespace-pre-line">
+//         <p className="text-black/70 text-sm whitespace-pre-line">
 //           {rightReview.thought}
 //         </p>
 //       </div>
@@ -174,7 +174,7 @@ const ReviewCard = ({ review }) => {
         className="h-[4rem] w-[4rem] object-cover rounded-full"
         alt={review.name}
       />
-      <h4 className="text-lg leading-none font-bold text-tertiary">{review.name}</h4>
+      <h4 className="text-lg leading-none font-bold text-black">{review.name}</h4>
       <ReactStars
         edit={false}
         value={5}
@@ -182,7 +182,7 @@ const ReviewCard = ({ review }) => {
         size={28}
         activeColor="#FFAB23"
       />
-      <p className="text-tertiary/70 text-sm whitespace-pre-line leading-normal">
+      <p className="text-black/70 text-sm whitespace-pre-line leading-normal">
         {review.desc}
       </p>
     </div>
