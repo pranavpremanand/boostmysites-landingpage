@@ -220,7 +220,7 @@ const LeadForm = () => {
         <button
           disabled={spinner}
           type="submit"
-          className="mt-3 text-sm cursor-pointer flex justify-center bg-primary1 hover:-translate-y-1 shadow-large shadow-transparent hover:shadow-primary/[35%] text-white border border-primary1 py-2 px-4 rounded-full transition-all duration-300"
+          className="mt-3 text-sm cursor-pointer flex justify-center bg-primary1 hover:-translate-y-1 shadow-large shadow-transparent hover:shadow-primary/[35%] text-white border border-primary1 py-3 px-4 rounded-full transition-all duration-300"
         >
           {spinner ? (
             <div className="shadow-none">
