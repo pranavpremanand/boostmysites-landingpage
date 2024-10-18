@@ -122,7 +122,7 @@ const ContactFormStep2 = () => {
               toast.success("Email sent successfully");
               reset();
               sessionStorage.removeItem("contactForm");
-              navigate("/");
+              navigate("/ai-expert");
             })
             .catch((error) => {
               toast.error(error.message);
