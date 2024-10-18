@@ -315,12 +315,12 @@ const Home = () => {
           </div>
           <div
             data-aos="fade-up"
-            className="py-[3rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10"
+            className="py-[3rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
           >
-            <div className="max-h-[30rem] w-full relative">
+            <div className="h-[30rem] w-full relative">
               <img
                 src={teamImg1}
-                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
@@ -330,10 +330,10 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div className="max-h-[30rem] w-full relative">
+            <div className="h-[30rem] w-full relative">
               <img
                 src={teamImg2}
-                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
@@ -341,10 +341,10 @@ const Home = () => {
                 <p className="text-sm text-primary1 w-fit">CEO</p>
               </div>
             </div>
-            <div className="max-h-[30rem] w-full relative">
+            <div className="h-[30rem] w-full relative">
               <img
                 src={teamImg5}
-                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
@@ -352,10 +352,10 @@ const Home = () => {
                 <p className="text-sm text-primary1 w-fit">CTO</p>
               </div>
             </div>
-            <div className="max-h-[30rem] w-full relative">
+            <div className="h-[30rem] w-full relative">
               <img
                 src={teamImg6}
-                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
@@ -363,10 +363,10 @@ const Home = () => {
                 <p className="text-sm text-primary1 w-fit">COO</p>
               </div>
             </div>
-            <div className="max-h-[30rem] w-full relative">
+            <div className="h-[30rem] w-full relative">
               <img
                 src={teamImg4}
-                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
@@ -374,10 +374,10 @@ const Home = () => {
                 <p className="text-sm text-primary1 w-fit">Associate Partner</p>
               </div>
             </div>
-            <div className="max-h-[30rem] w-full relative">
+            <div className="h-[30rem] w-full relative">
               <img
                 src={teamImg3}
-                className="max-h-[30rem] w-full object-cover mx-auto rounded-lg"
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
