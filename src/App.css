@@ -78,7 +78,7 @@
 }
 
 @media (max-width: 768px) {
-  body::before {
+  .landing-page::before {
     background-size: 110%;
     animation: moveBackground 50s linear infinite;
   }
