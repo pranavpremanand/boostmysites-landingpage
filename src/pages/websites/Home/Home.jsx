@@ -73,16 +73,15 @@ const Home = () => {
               Your one-stop solution for AI and IT development, business
               infrastructure, and consultancy. At Boostmysites, we not only
               provide expert support but also develop the right technology
-              tailored to your business needs. Wealso empower entrepreneurs
+              tailored to your business needs. We also empower entrepreneurs
               launch and scale with reduced risk, time, and investment, ensuring
               long-term success with cutting-edge solutions.
             </p>
           </div>
           <div
-            data-aos="fade-left"
             className="lg:col-span-2 flex justify-between lg:justify-end lg:-translate-x-[15%] lg:-translate-y-5"
           >
-            <div className="flex flex-col gap-6">
+            <div data-aos="fade-left" className="flex flex-col gap-6">
               <div className="flex flex-col gap-3 w-fit">
                 <h4 className="text-2xl">2k+</h4>
                 <p className="text-sm">
@@ -99,6 +98,7 @@ const Home = () => {
               </div>
             </div>
             <img
+            data-aos="fade-down"
               src={arrowIcon}
               alt="arrow"
               className="h-[6rem] object-contain mt-10 ml-5"
