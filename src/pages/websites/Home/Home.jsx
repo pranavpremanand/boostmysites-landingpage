@@ -18,6 +18,7 @@ import teamImg3 from "../../../assets/home/team3.jpg.png";
 import teamImg4 from "../../../assets/home/team4.jpg.jpg";
 import teamImg5 from "../../../assets/home/team5.jpg.jpg";
 import teamImg6 from "../../../assets/home/team6.jpg.jpg";
+import teamImg7 from "../../../assets/home/team7.jpg";
 import teamVid from "../../../assets/videos/our-team-vid.mp4";
 import teamVidThumb from "../../../assets/videos/our-team-vid-thumbnail.png";
 import ReactPlayer from "react-player";
@@ -399,6 +400,17 @@ const Home = () => {
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
                 <h6 className="text-xl font-semibold w-fit">Kavya R</h6>
+                <p className="text-sm text-primary1 w-fit">Associate Partner</p>
+              </div>
+            </div>
+            <div className="h-[30rem] w-full relative">
+              <img
+                src={teamImg7}
+                className="h-[30rem] w-full object-cover mx-auto rounded-lg"
+                alt="team"
+              />
+              <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
+                <h6 className="text-xl font-semibold w-fit">Vidhya Naidu</h6>
                 <p className="text-sm text-primary1 w-fit">Associate Partner</p>
               </div>
             </div>
