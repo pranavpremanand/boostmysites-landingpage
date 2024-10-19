@@ -6,31 +6,53 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-scroll";
 import { Link as RLink, useLocation } from "react-router-dom";
 
+// const options = [
+//   {
+//     id: 1,
+//     title: "Demos",
+//     path: "#",
+//   },
+//   {
+//     id: 2,
+//     title: "Pages",
+//     path: "#",
+//   },
+//   {
+//     id: 3,
+//     title: "Portfolio",
+//     path: "#",
+//   },
+//   {
+//     id: 4,
+//     title: "Blogs",
+//     path: "#",
+//   },
+//   {
+//     id: 5,
+//     title: "Contact Us",
+//     path: "#",
+//   },
+// ];
 const options = [
   {
     id: 1,
-    title: "Demos",
-    path: "#",
+    title: "AI & IT Development",
+    path: "https://dev.boostmysites.com",
   },
   {
     id: 2,
-    title: "Pages",
-    path: "#",
+    title: "Start Your AI Company",
+    path: "/ai-expert",
   },
   {
     id: 3,
-    title: "Portfolio",
-    path: "#",
+    title: "Start Your Ecommerce Company",
+    path: "https://boostmysites.store",
   },
   {
     id: 4,
-    title: "Blogs",
-    path: "#",
-  },
-  {
-    id: 5,
     title: "Contact Us",
-    path: "#",
+    path: "/ai-expert/contact",
   },
 ];
 
@@ -77,28 +99,29 @@ const Header = () => {
                 className="h-[4rem] md:h-[5rem] object-contain -mb-3"
               />
             </RLink>
-            <div className="text-sm uppercase hidden lg:flex items-center gap-7">
+            <div className="text-sm hidden uppercase xl:flex items-center gap-7">
               {options.map((option) => (
-                <Link
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={1000}
+                <RLink
                   to={option.path}
                   key={option.id}
                   className="text-secondary link cursor-pointer"
-                  activeClass="link-active"
                 >
                   {option.title}
-                </Link>
+                </RLink>
               ))}
             </div>
-            <RLink className="hidden lg:flex primary-btn1">
+            <Link
+              to="contact-form"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              className="hidden xl:flex primary-btn1"
+            >
               Let's Connect
-            </RLink>
+            </Link>
 
             <div
-              className="block lg:hidden justify-self-end"
+              className="block xl:hidden justify-self-end"
               onClick={toggleDrawer}
             >
               <Hamburger
@@ -122,25 +145,21 @@ const Header = () => {
         <div className="mb-6 flex items-center justify-end pr-[.7rem] py-[.4rem]">
           <button
             onClick={() => setIsOpen(false)}
-            className="text-primary text-[2.2rem]"
+            className="text-primary1 text-[2.2rem]"
           >
             <IoMdClose />
           </button>
         </div>
         <div className="flex flex-col gap-4">
           {options.map(({ title, path, id }) => (
-            <Link
+            <RLink
               onClick={() => setIsOpen(false)}
               key={id}
-              className="text-2xl font-medium transition-colors duration-300 link"
+              className="text-2xl font-medium cursor-pointer transition-colors duration-300 link"
               to={path}
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={1000}
             >
               {title}
-            </Link>
+            </RLink>
           ))}
         </div>
       </Drawer>

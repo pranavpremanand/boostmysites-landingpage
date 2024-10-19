@@ -159,8 +159,13 @@ const Home = () => {
                   innovation, ensuring clients stay ahead in today’s competitive
                   landscape
                 </p>
-                <Link className="text-sm flex items-center gap-2 text-primary1 underline">
-                  More About Us <MdArrowOutward className="text-lg -mt-1" />
+                <Link
+                  to="https://dev.boostmysites.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-md flex items-center gap-2 text-primary1 underline w-fit"
+                >
+                  Know More <MdArrowOutward className="text-lg -mt-1" />
                 </Link>
               </div>
               <div className="px-[1rem] pt-[1rem] border-t border-white/20 lg:hidden grid grid-cols-[auto_3rem] items-end">
@@ -234,7 +239,12 @@ const Home = () => {
                   We will handle the everything while you focus on growing your
                   business
                 </p>
-                <Link to='/ai-expert' className="text-sm flex items-center gap-2 text-primary1 underline">
+                <Link
+                  to="/ai-expert"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-md flex items-center gap-2 text-primary1 underline"
+                >
                   Know More <MdArrowOutward className="text-lg -mt-1" />
                 </Link>
               </div>
@@ -276,8 +286,13 @@ const Home = () => {
                     operations. We do the heavy lifting, allowing you to
                     concentrate on running and growing your e-commerce business
                   </p>
-                  <Link className="text-sm flex items-center gap-2 text-primary1 underline">
-                    More About Us <MdArrowOutward className="text-lg -mt-1" />
+                  <Link
+                    to="https://boostmysites.store"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-md flex items-center gap-2 text-primary1 underline"
+                  >
+                    Know More <MdArrowOutward className="text-lg -mt-1" />
                   </Link>
                 </div>
               </div>
@@ -359,7 +374,9 @@ const Home = () => {
                 alt="team"
               />
               <div className="absolute bottom-0 left-0 w-full h-fit bg-black/60 p-4">
-                <h6 className="text-xl font-semibold w-fit">Darshan R Krishnan</h6>
+                <h6 className="text-xl font-semibold w-fit">
+                  Darshan R Krishnan
+                </h6>
                 <p className="text-sm text-primary1 w-fit">COO</p>
               </div>
             </div>
