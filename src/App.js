@@ -23,6 +23,7 @@ import { LoadingSpinner } from "./components/LoadingSpinner";
 import Header from "./components/Header";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Footer from "./components/Footer";
+import ThankYou from "./pages/ThankYou";
 
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const Home = lazy(() => import("./pages/websites/Home/Home"));
@@ -79,7 +80,7 @@ function App() {
                 path={`${path}/contact/*`}
                 element={
                   <>
-                    <LandingPageHeader path={path}/>
+                    <LandingPageHeader path={path} />
                     <Routes>
                       <Route index element={<Navigate to="step1" replace />} />
                       <Route
@@ -99,6 +100,15 @@ function App() {
                     <LandingPageFooter />
                   </>
                 }
+              />
+            ))}
+
+            {/* Thank You Routes */}
+            {aiExpertPaths.map(({ path }) => (
+              <Route
+                key={`thankyou-${path}`}
+                path={`${path}/contact/thank-you`}
+                element={<ThankYou pathToRedirect={path} />}
               />
             ))}
             <Route path="*" element={<Navigate to="/" replace />} />

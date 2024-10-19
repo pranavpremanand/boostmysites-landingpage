@@ -92,7 +92,6 @@ const ContactFormStep2 = ({ emailIdToSendMail, pathToRedirect }) => {
 
       // Construct the request payload
       var payload = {
-        // to: "ceo@boostmysites.com",
         to: emailIdToSendMail,
         subject: "Lead Form Submission",
         body: emailBody,
@@ -113,7 +112,7 @@ const ContactFormStep2 = ({ emailIdToSendMail, pathToRedirect }) => {
             reset();
             sessionStorage.removeItem("isoCode")
             sessionStorage.removeItem("contactForm");
-            navigate(pathToRedirect);
+            navigate(`${pathToRedirect}/contact/thank-you`);
           })
           .catch((error) => {
             toast.error(error.message);
