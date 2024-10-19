@@ -315,22 +315,22 @@ const Home = () => {
         <div className="wrapper">
           <div className="flex sm:flex-row flex-col justify-between gap-5 items-center">
             <div data-aos="fade-right" className="flex flex-col gap-1">
-              <p className="text-sm text-primary1 uppercase">our team</p>
+              {/* <p className="text-sm text-primary1 uppercase">our team</p> */}
               <h4 className="text-[2.10rem] sm:text-4xl uppercase">
                 <span className="font-semibold">
-                  Looking to partner with us?
+                our team
                 </span>
               </h4>
             </div>
-            <div data-aos="fade-left" className="flex items-center gap-2">
+            {/* <div data-aos="fade-left" className="flex items-center gap-2">
               <Link className="font-medium uppercase text-[.8rem] cursor-pointer bg-black hover:shadow-white/20 hover:shadow-large hover:bg-white hover:text-black text-white border border-white py-2 px-3 rounded-full transition-all duration-300 flex items-center gap-1">
                 join us <MdArrowOutward className="text-lg -mt-1" />
               </Link>
-            </div>
+            </div> */}
           </div>
           <div
             data-aos="fade-up"
-            className="py-[3rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+            className="py-[2rem] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             <div className="h-[30rem] w-full relative">
               <img

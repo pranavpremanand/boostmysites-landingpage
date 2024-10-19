@@ -14,7 +14,7 @@ const Footer = () => {
           <ul className="flex flex-col gap-1 text-sm text-white/70 font-light">
             <li>
               <Link
-                // href="tel:+24563432445"
+                href="tel:+24563432445"
                 className="flex items-center gap-1 link"
               >
                 <BiPhone className="text-xl" />{" "}
@@ -35,7 +35,40 @@ const Footer = () => {
         <div className="flex flex-col gap-3">
           <h5 className="font-light tracking-wide uppercase">useful links</h5>
           <ul className="flex flex-col gap-1 text-sm text-white/70 font-light">
-            <li>
+            {[
+              {
+                id: 1,
+                title: "AI & IT Development",
+                path: "https://dev.boostmysites.com",
+              },
+              {
+                id: 2,
+                title: "Start Your AI Company",
+                path: "/ai-expert",
+              },
+              {
+                id: 3,
+                title: "Start Your Ecommerce Company",
+                path: "https://boostmysites.store",
+              },
+              {
+                id: 4,
+                title: "Contact Us",
+                path: "/ai-expert/contact",
+              },
+            ].map((item) => (
+              <li key={item.id}>
+                <Link
+                  referrerPolicy="no-referrer"
+                  target="_blank"
+                  className="link"
+                  to={item.path}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+            {/* <li>
               <Link className="link" to="#">
                 About
               </Link>
@@ -54,7 +87,7 @@ const Footer = () => {
               <Link className="link" to="#">
                 Contact Us
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="flex flex-col gap-3">

@@ -110,15 +110,11 @@ const Header = () => {
                 </RLink>
               ))}
             </div>
-            <Link
-              to="contact-form"
-              spy={true}
-              smooth={true}
-              offset={-100}
+            {/* <RLink
               className="hidden xl:flex primary-btn1"
             >
               Let's Connect
-            </Link>
+            </RLink> */}
 
             <div
               className="block xl:hidden justify-self-end"

@@ -77,7 +77,7 @@ const LeadForm = () => {
     >
       <div data-aos="fade-right" className="flex flex-col gap-2 sm:gap-5">
         <h3 className="text-4xl md:text-5xl font-semibold leading-tight">
-          Start Your Business with IAAS
+          Looking to partner with us?
         </h3>
         <div className="mt-[1rem] sm:mt-[2rem] flex flex-col gap-3">
           <Link className="flex items-center gap-1 text-primary1">
@@ -156,14 +156,14 @@ const LeadForm = () => {
         </div>
         <div className="flex relative flex-col bg-[#EEF0FF] p-2 rounded-2xl">
           <label htmlFor="" className="text-black/80 text-sm">
-            Service Requires
+            Service Required
           </label>
           <button
             type="button"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="bg-[#eef0ff] mt-2 outline-none text-start text-md flex justify-between pr-1 text-nowrap truncate line-clamp-1 text-ellipsis"
           >
-            {getValues("service")} <RxCaretDown className="text-xl"/>
+            {getValues("service")} <RxCaretDown className="text-xl" />
           </button>
           {isDropdownOpen && (
             <div
