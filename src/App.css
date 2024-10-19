@@ -66,7 +66,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   overflow-x: hidden;
   background-image: url("assets/images/bg-image-1.jpg");
   background-size: 15%; /* Ensure the background fills the element */

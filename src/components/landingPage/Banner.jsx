@@ -5,7 +5,7 @@ import introVid from "../../assets/videos/intro.mp4";
 import JoinEntrepreneurs from "../JoinEntrepreneurs";
 import { BiPlay } from "react-icons/bi";
 
-const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
+const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying,path }) => {
   const navigate = useNavigate();
   const [isVideoLoading, setIsVideoLoading] = useState(true);
 
@@ -80,7 +80,7 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying }) => {
         className="flex flex-col gap-3 w-full justify-center items-center"
       >
         <button
-          onClick={() => navigate("/ai-expert/contact")}
+          onClick={() => navigate(`${path}/contact`)}
           className="primary-btn font-medium w-[20rem] flex justify-center py-3"
         >
           Start your own AI company

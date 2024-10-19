@@ -34,6 +34,15 @@ AOS.init({
 });
 
 function App() {
+  const aiExpertPaths = [
+    { path: "/ai-expert", emailIdToSendMail: "ceo@boostmysites.com" },
+    { path: "/ai-expert1", emailIdToSendMail: "singh006ad@gmail.com" },
+    { path: "/ai-expert2", emailIdToSendMail: "merlinjoy1808@gmail.com" },
+    { path: "/ai-expert3", emailIdToSendMail: "kavyakallega@gmail.com" },
+    { path: "/ai-expert4", emailIdToSendMail: "darshan@boostmysites.com" },
+    { path: "/ai-expert5", emailIdToSendMail: "saividhu94@gmail.com" },
+    { path: "/ai-expert6", emailIdToSendMail: "supreeth.girish@gmail.com" },
+  ];
   return (
     <SpinnerContextProvider>
       <BrowserRouter>
@@ -49,30 +58,49 @@ function App() {
         />
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            <Route
-              path="/ai-expert"
-              element={
-                <>
-                  <LandingPageHeader />
-                  <LandingPage />
-                  <LandingPageFooter />
-                </>
-              }
-            />
-            <Route
-              path="/ai-expert/contact/*"
-              element={
-                <>
-                  <LandingPageHeader />
-                  <Routes>
-                    <Route index element={<Navigate to="step1" replace />} />
-                    <Route path="step1" element={<ContactFormStep1 />} />
-                    <Route path="step2" element={<ContactFormStep2 />} />
-                  </Routes>
-                  <LandingPageFooter />
-                </>
-              }
-            />
+            {aiExpertPaths.map(({ path }) => (
+              <Route
+                key={path}
+                path={path}
+                element={
+                  <>
+                    <LandingPageHeader path={path} />
+                    <LandingPage path={path} />
+                    <LandingPageFooter />
+                  </>
+                }
+              />
+            ))}
+
+            {/* Contact Routes */}
+            {aiExpertPaths.map(({ emailIdToSendMail, path }) => (
+              <Route
+                key={`contact-${path}`}
+                path={`${path}/contact/*`}
+                element={
+                  <>
+                    <LandingPageHeader path={path}/>
+                    <Routes>
+                      <Route index element={<Navigate to="step1" replace />} />
+                      <Route
+                        path="step1"
+                        element={<ContactFormStep1 pathToRedirect={path} />}
+                      />
+                      <Route
+                        path="step2"
+                        element={
+                          <ContactFormStep2
+                            emailIdToSendMail={emailIdToSendMail}
+                            pathToRedirect={path}
+                          />
+                        }
+                      />
+                    </Routes>
+                    <LandingPageFooter />
+                  </>
+                }
+              />
+            ))}
             <Route path="*" element={<Navigate to="/" replace />} />
 
             {/* Website routes */}
@@ -82,7 +110,7 @@ function App() {
                 <>
                   <Header />
                   <Home />
-                  <Footer/>
+                  <Footer />
                 </>
               }
             />

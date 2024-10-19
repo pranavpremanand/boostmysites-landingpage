@@ -6,7 +6,7 @@ import "react-country-phone-input/lib/style.css";
 import { Country, State } from "country-state-city";
 import { useNavigate } from "react-router-dom";
 
-const ContactFormStep1 = () => {
+const ContactFormStep1 = ({pathToRedirect}) => {
   // const { setIsLoading } = useContext(SpinnerContext);
   const [country, setCountry] = useState("IN");
   const [state, setState] = useState("");
@@ -79,7 +79,7 @@ const ContactFormStep1 = () => {
         state: values.state,
       };
       sessionStorage.setItem("contactForm", JSON.stringify(data));
-      navigate("/ai-expert/contact/step2");
+      navigate(`${pathToRedirect}/contact/step2`);
     } else {
       setError("phone", {
         type: "custom",
@@ -203,7 +203,7 @@ const ContactFormStep1 = () => {
                 {countriesWithStates.map((country) => (
                   <option
                     className="hover:bg-primary outline-none"
-                    key={country.code}
+                    key={country.isoCode}
                     value={country.isoCode}
                   >
                     {country.name}

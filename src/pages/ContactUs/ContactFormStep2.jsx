@@ -7,15 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { BiCaretLeft } from "react-icons/bi";
 import { SpinnerContext } from "../../components/SpinnerContext";
 
-const ContactFormStep2 = () => {
+const ContactFormStep2 = ({ emailIdToSendMail, pathToRedirect }) => {
+  console.log(pathToRedirect);
   const { spinner, setSpinner } = useContext(SpinnerContext);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!sessionStorage.getItem("contactForm")) {
-      navigate("/ai-expert/contact/step1");
+      navigate(`${pathToRedirect}/contact/step1`);
     }
   }, []);
+
   const {
     register,
     handleSubmit,
@@ -71,7 +73,6 @@ const ContactFormStep2 = () => {
 
     if (!contactForm) {
       toast.error("Please fill the contact form first");
-      navigate("/ai-expert/contact/step1");
       return;
     } else {
       values.fullName = contactForm.fullName;
@@ -79,59 +80,48 @@ const ContactFormStep2 = () => {
       values.phone = contactForm.phone;
       values.country = contactForm.country;
       values.state = contactForm.state;
-      if (
-        !values.phone ||
-        !values.country ||
-        !values.state ||
-        !values.fullName ||
-        !values.email
-      ) {
-        toast.error("Please fill the contact form first");
-        navigate("/ai-expert/contact/step1");
-        return;
-      } else {
-        var emailBody = "Name: " + values.fullName + "\n\n";
-        emailBody += "Email: " + values.email + "\n\n";
-        emailBody += "Phone Number: " + values.phone + "\n\n";
-        emailBody +=
-          "Location: " + values.country + ", " + values.state + "\n\n";
-        emailBody += "Business Type: " + values.businessType + "\n\n";
-        emailBody += "Expected Earnings: " + values.expectedEarnings + "\n\n";
-        emailBody += "Primary Goal: " + values.primaryGoal + "\n\n";
-        emailBody += "Investment Capital: " + values.investmentCapital + "\n\n";
-        emailBody += "Timeline: " + values.timeline + "\n\n";
+      var emailBody = "Name: " + values.fullName + "\n\n";
+      emailBody += "Email: " + values.email + "\n\n";
+      emailBody += "Phone Number: " + values.phone + "\n\n";
+      emailBody += "Location: " + values.country + ", " + values.state + "\n\n";
+      emailBody += "Business Type: " + values.businessType + "\n\n";
+      emailBody += "Expected Earnings: " + values.expectedEarnings + "\n\n";
+      emailBody += "Primary Goal: " + values.primaryGoal + "\n\n";
+      emailBody += "Investment Capital: " + values.investmentCapital + "\n\n";
+      emailBody += "Timeline: " + values.timeline + "\n\n";
 
-        // Construct the request payload
-        var payload = {
-          to: "ceo@boostmysites.com",
-          subject: "Lead Form Submission",
-          body: emailBody,
-        };
-        try {
-          setSpinner(true);
+      // Construct the request payload
+      var payload = {
+        // to: "ceo@boostmysites.com",
+        to: emailIdToSendMail,
+        subject: "Lead Form Submission",
+        body: emailBody,
+      };
+      try {
+        setSpinner(true);
 
-          await fetch("https://smtp-api-tawny.vercel.app/send-email", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
+        await fetch("https://smtp-api-tawny.vercel.app/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        })
+          .then((response) => response.json())
+          .then(() => {
+            toast.success("Email sent successfully");
+            reset();
+            sessionStorage.removeItem("isoCode")
+            sessionStorage.removeItem("contactForm");
+            navigate(pathToRedirect);
           })
-            .then((response) => response.json())
-            .then(() => {
-              toast.success("Email sent successfully");
-              reset();
-              sessionStorage.removeItem("contactForm");
-              navigate("/ai-expert");
-            })
-            .catch((error) => {
-              toast.error(error.message);
-            });
-        } catch (err) {
-          toast.error("Something went wrong");
-        } finally {
-          setSpinner(false);
-        }
+          .catch((error) => {
+            toast.error(error.message);
+          });
+      } catch (err) {
+        toast.error("Something went wrong");
+      } finally {
+        setSpinner(false);
       }
     }
   };
@@ -139,7 +129,7 @@ const ContactFormStep2 = () => {
     <div className="landing-page max-w-md mx-auto gap-5 text-secondary section-pt px-5">
       <button
         data-aos="fade-right"
-        onClick={() => navigate("/ai-expert/contact/step1")}
+        onClick={() => navigate(pathToRedirect+'/contact/step1')}
         className="flex items-center text-white mb-5"
       >
         <BiCaretLeft className="text-4xl" />

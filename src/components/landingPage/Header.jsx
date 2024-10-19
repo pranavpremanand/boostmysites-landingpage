@@ -39,7 +39,7 @@ const options = [
   // },
 ];
 
-const Header = () => {
+const Header = ({path}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
@@ -75,7 +75,7 @@ const Header = () => {
       <div className="w-full">
         <div className="wrapper flex justify-between items-center w-full">
           {pathname.includes("contact") ? (
-            <RLink to="/ai-expert" className="cursor-pointer">
+            <RLink to={path} className="cursor-pointer">
               <img
                 src={logo}
                 alt=""
@@ -122,7 +122,7 @@ const Header = () => {
               >
                 Login
               </RLink>
-              <RLink to="/ai-expert/contact" className="primary-btn">
+              <RLink to={`${path}/contact`} className="primary-btn">
                 Join Now
               </RLink>
             </div>

@@ -6,7 +6,6 @@ import img4 from "../assets/images/4.png";
 import flowImg1 from "../assets/images/flow-img-1.png";
 import flowImg2 from "../assets/images/flow-img-2.png";
 import flowImg3 from "../assets/images/flow-img-3.png";
-import { Link as SLink } from "react-scroll";
 import { useKeenSlider } from "keen-slider/react";
 import { FaUnlockAlt } from "react-icons/fa";
 import access1 from "../assets/images/AI-Driven Design.jpg";
@@ -101,7 +100,7 @@ const workFlow = [
   },
 ];
 
-const LandingPage = () => {
+const LandingPage = ({path}) => {
   const [introVidIsPlaying, setIntroVidIsPlaying] = useState(false);
   const [sliderRef] = useKeenSlider(
     {
@@ -144,6 +143,7 @@ const LandingPage = () => {
         <Banner
           introVidIsPlaying={introVidIsPlaying}
           setIntroVidIsPlaying={setIntroVidIsPlaying}
+          path={path}
         />
       </div>
       <div className="wrapper">
@@ -209,7 +209,7 @@ const LandingPage = () => {
           >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/ai-expert/contact"
+              to={`${path}/contact`}
             >
               Start your own AI company
             </Link>
@@ -258,7 +258,7 @@ const LandingPage = () => {
           >
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/ai-expert/contact"
+              to={`${path}/contact`}
             >
               Start your own AI company
             </Link>
@@ -369,7 +369,7 @@ const LandingPage = () => {
             <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
               <Link
                 className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-                to="/ai-expert/contact"
+                to={`${path}/contact`}
               >
                 Start your own AI company
               </Link>
@@ -424,7 +424,7 @@ const LandingPage = () => {
           <div className="flex flex-col gap-3 w-full justify-center items-center mt-14">
             <Link
               className="primary-btn font-medium w-[20rem] flex justify-center py-3"
-              to="/ai-expert/contact/step1"
+              to={`${path}/contact`}
             >
               Start your own AI company
             </Link>
