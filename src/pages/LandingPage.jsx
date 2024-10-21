@@ -357,7 +357,7 @@ const LandingPage = ({path}) => {
               <div
                 key={access.title}
                 style={{ backgroundImage: `url(${encodeURI(access.img)})` }}
-                className="relative bg-center group overflow-hidden hover:scale-105 bg-cover cursor-pointer transition-all duration-200 rounded-md p-5 text-xl sm:text-2xl flex justify-center items-center text-center w-full aspect-square"
+                className="shadow-large shadow-white/10 relative bg-center group overflow-hidden hover:scale-105 bg-cover cursor-pointer transition-all duration-200 rounded-md p-5 text-xl sm:text-2xl flex justify-center items-center text-center w-full aspect-square"
               >
                 <div className="absolute inset-0 bg-black/60 group-hover:bg-black/70 h-full w-full"></div>
                 <p className="z-10 font-semibold">{access.title}</p>

@@ -7,7 +7,7 @@ import vid4 from "../assets/videos/vid4.mp4";
 import vid5 from "../assets/videos/vid5.mp4";
 import { BiPlay } from "react-icons/bi";
 
-const Videos = ({setIntroVidIsPlaying}) => {
+const Videos = ({ setIntroVidIsPlaying }) => {
   const video1Ref = useRef(null);
   const video2Ref = useRef(null);
   const video3Ref = useRef(null);
@@ -34,7 +34,7 @@ const Videos = ({setIntroVidIsPlaying}) => {
 
   // Function to handle video play
   const handlePlay = (videoRef, videoKey) => {
-    setIntroVidIsPlaying(false)
+    setIntroVidIsPlaying(false);
     // Pause all other videos except the one clicked
     if (video1Ref.current && video1Ref.current !== videoRef.current) {
       video1Ref.current.seekTo(0); // Reset to the beginning
@@ -80,12 +80,14 @@ const Videos = ({setIntroVidIsPlaying}) => {
       <div className="grid sm:grid-cols-2 md:grid-cols-4 justify-center gap-5 max-w-5xl mx-auto">
         <div className="h-[50vh] md:h-[60vh] relative">
           <div
-            onClick={() => handlePlay(video1Ref, "video1")}
+            onClick={() =>
+              !isVideoLoading.video1 && handlePlay(video1Ref, "video1")
+            }
             className={`absolute top-0 left-0 w-full h-full z-10 ${
               !isPlaying.video1 && "bg-black/20"
             }`}
           >
-            {!isPlaying.video1 && (
+            {!isPlaying.video1 && !isVideoLoading.video1 && (
               <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <BiPlay className="text-[3rem] text-black" />
               </button>
@@ -106,7 +108,9 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
-            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video1: false }))}
+            onReady={() =>
+              setIsVideoLoading((prev) => ({ ...prev, video1: false }))
+            }
             config={{
               file: {
                 attributes: {
@@ -119,12 +123,14 @@ const Videos = ({setIntroVidIsPlaying}) => {
         </div>
         <div className="h-[50vh] md:h-[60vh] relative">
           <div
-            onClick={() => handlePlay(video2Ref, "video2")}
+            onClick={() =>
+              !isVideoLoading.video2 && handlePlay(video2Ref, "video2")
+            }
             className={`absolute top-0 left-0 w-full h-full z-10 ${
               !isPlaying.video2 && "bg-black/20"
             }`}
           >
-            {!isPlaying.video2 && (
+            {!isPlaying.video2 && !isVideoLoading.video2 && (
               <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <BiPlay className="text-[3rem] text-black" />
               </button>
@@ -145,7 +151,9 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
-            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video2: false }))}
+            onReady={() =>
+              setIsVideoLoading((prev) => ({ ...prev, video2: false }))
+            }
             config={{
               file: {
                 attributes: {
@@ -158,12 +166,14 @@ const Videos = ({setIntroVidIsPlaying}) => {
         </div>
         <div className="h-[50vh] md:h-[60vh] relative">
           <div
-            onClick={() => handlePlay(video3Ref, "video3")}
+            onClick={() =>
+              !isVideoLoading.video3 && handlePlay(video3Ref, "video3")
+            }
             className={`absolute top-0 left-0 w-full h-full z-10 ${
               !isPlaying.video3 && "bg-black/20"
             }`}
           >
-            {!isPlaying.video3 && (
+            {!isPlaying.video3 && !isVideoLoading.video3 && (
               <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <BiPlay className="text-[3rem] text-black" />
               </button>
@@ -184,7 +194,9 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
-            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video3: false }))}
+            onReady={() =>
+              setIsVideoLoading((prev) => ({ ...prev, video3: false }))
+            }
             config={{
               file: {
                 attributes: {
@@ -197,12 +209,14 @@ const Videos = ({setIntroVidIsPlaying}) => {
         </div>
         <div className="h-[50vh] md:h-[60vh] relative">
           <div
-            onClick={() => handlePlay(video4Ref, "video4")}
+            onClick={() =>
+              !isVideoLoading.video4 && handlePlay(video4Ref, "video4")
+            }
             className={`absolute top-0 left-0 w-full h-full z-10 ${
               !isPlaying.video4 && "bg-black/20"
             }`}
           >
-            {!isPlaying.video4 && (
+            {!isPlaying.video4 && !isVideoLoading.video4 && (
               <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <BiPlay className="text-[3rem] text-black" />
               </button>
@@ -222,7 +236,9 @@ const Videos = ({setIntroVidIsPlaying}) => {
             height="100%"
             pip={false}
             playsinline={true}
-            onReady={() => setIsVideoLoading((prev) => ({ ...prev, video4: false }))}
+            onReady={() =>
+              setIsVideoLoading((prev) => ({ ...prev, video4: false }))
+            }
             config={{
               file: {
                 attributes: {
@@ -237,14 +253,16 @@ const Videos = ({setIntroVidIsPlaying}) => {
       <h1 className="whitespace-pre-line text-[2.7rem] mt-12 mb-3 md:mb-8 leading-[3rem] md:leading-[4rem] md:text-[3rem] font-semibold text-primary max-w-[45rem] mx-auto">
         {"Boostmysites\n Founder & Chairman"} <br />
       </h1>
-      <h1 className="text-white text-[2.7rem] md:text-6xl mb-3 md:mb-14 font-bold">MAHIN B S</h1>
+      <h1 className="text-white text-[2.7rem] md:text-6xl mb-3 md:mb-14 font-bold">
+        MAHIN B S
+      </h1>
       <div className="h-[60vh] md:h-[70vh] relative w-full">
         <div className="absolute top-0 left-0 w-full h-full z-10"></div>
         {isVideoLoading.video5 && (
-            <div className="absolute top-0 left-0 w-full h-[60vh] md:h-[70vh] flex justify-center items-center">
-              <span class="autoplay-video-loader"></span>
-            </div>
-          )}
+          <div className="absolute top-0 left-0 w-full h-[60vh] md:h-[70vh] flex justify-center items-center">
+            <span class="autoplay-video-loader"></span>
+          </div>
+        )}
         <ReactPlayer
           className="h-full w-full z-0"
           url={vid5}
@@ -255,7 +273,9 @@ const Videos = ({setIntroVidIsPlaying}) => {
           height="100%"
           pip={false}
           playsinline={true}
-          onReady={() => setIsVideoLoading((prev) => ({ ...prev, video5: false }))}
+          onReady={() =>
+            setIsVideoLoading((prev) => ({ ...prev, video5: false }))
+          }
           config={{
             file: {
               attributes: {

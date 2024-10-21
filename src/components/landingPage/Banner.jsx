@@ -5,7 +5,7 @@ import introVid from "../../assets/videos/intro.mp4";
 import JoinEntrepreneurs from "../JoinEntrepreneurs";
 import { BiPlay } from "react-icons/bi";
 
-const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying,path }) => {
+const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying, path }) => {
   const navigate = useNavigate();
   const [isVideoLoading, setIsVideoLoading] = useState(true);
 
@@ -25,12 +25,12 @@ const Banner = ({ introVidIsPlaying, setIntroVidIsPlaying,path }) => {
       <div className="pt-[4rem] pb-[3rem]" data-aos="fade-up">
         <div className="h-[50vh] sm:h-[60vh] w-full lg:w-[80%] relative mx-auto -z-10">
           <div
-            onClick={() => handlePlayVideo()}
+            onClick={() => !isVideoLoading && handlePlayVideo()}
             className={`absolute top-0 left-0 w-full h-full z-10
                ${!introVidIsPlaying && "bg-black/20"}
               `}
           >
-            {!introVidIsPlaying && (
+            {!introVidIsPlaying && !isVideoLoading && (
               <button className="bg-primary w-[3rem] z-10 h-[3rem] p-1 flex justify-center items-center rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                 <BiPlay className="text-[3rem] text-black" />
               </button>
