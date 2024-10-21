@@ -244,7 +244,7 @@ const Home = () => {
                   to="/ai-expert"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-md flex items-center gap-2 text-primary1 underline"
+                  className="text-md flex items-center gap-2 text-primary1 underline w-fit"
                 >
                   Know More <MdArrowOutward className="text-lg -mt-1" />
                 </Link>
@@ -291,7 +291,7 @@ const Home = () => {
                     to="https://boostmysites.store"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-md flex items-center gap-2 text-primary1 underline"
+                    className="text-md flex items-center gap-2 text-primary1 underline w-fit"
                   >
                     Know More <MdArrowOutward className="text-lg -mt-1" />
                   </Link>

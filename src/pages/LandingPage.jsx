@@ -146,6 +146,9 @@ const LandingPage = ({path}) => {
           path={path}
         />
       </div>
+      <section className="pt-20">
+        <FeaturedIn />
+      </section>
       <div className="wrapper">
         <section
           id="features"
@@ -407,15 +410,11 @@ const LandingPage = ({path}) => {
               </div>
             ))}
           </div>
-          <h1 className=" text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center mt-20">
+          <h1 className="mb-14 text-[2.7rem] leading-[3rem] md:text-5xl font-semibold text-primary text-center mt-20">
             Bring your dream company to life.
           </h1>
         </section>
       </div>
-
-      <section className="py-14">
-        <FeaturedIn />
-      </section>
       <div className="wrapper">
         <section data-aos="fade-up" className="">
           <FAQ />

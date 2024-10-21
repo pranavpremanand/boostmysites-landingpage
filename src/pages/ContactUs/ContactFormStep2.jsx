@@ -83,7 +83,7 @@ const ContactFormStep2 = ({ emailIdToSendMail, pathToRedirect }) => {
       var emailBody = "Name: " + values.fullName + "\n\n";
       emailBody += "Email: " + values.email + "\n\n";
       emailBody += "Phone Number: " + values.phone + "\n\n";
-      emailBody += "Location: " + values.country + ", " + values.state + "\n\n";
+      emailBody += "Location: " + values.state + ", " + values.country + "\n\n";
       emailBody += "Business Type: " + values.businessType + "\n\n";
       emailBody += "Expected Earnings: " + values.expectedEarnings + "\n\n";
       emailBody += "Primary Goal: " + values.primaryGoal + "\n\n";
@@ -110,7 +110,7 @@ const ContactFormStep2 = ({ emailIdToSendMail, pathToRedirect }) => {
           .then(() => {
             toast.success("Email sent successfully");
             reset();
-            sessionStorage.removeItem("isoCode")
+            sessionStorage.removeItem("isoCode");
             sessionStorage.removeItem("contactForm");
             navigate(`${pathToRedirect}/contact/thank-you`);
           })
@@ -128,7 +128,7 @@ const ContactFormStep2 = ({ emailIdToSendMail, pathToRedirect }) => {
     <div className="landing-page max-w-md mx-auto gap-5 text-secondary section-pt px-5">
       <button
         data-aos="fade-right"
-        onClick={() => navigate(pathToRedirect+'/contact/step1')}
+        onClick={() => navigate(pathToRedirect + "/contact/step1")}
         className="flex items-center text-white mb-5"
       >
         <BiCaretLeft className="text-4xl" />
